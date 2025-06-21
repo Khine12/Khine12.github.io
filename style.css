@@ -1,0 +1,92 @@
+/* ========== Header / Hero Section ========== */
+header {
+  background: #3f015c;
+  color: white;
+  padding: 40px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.profile-pic-side {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text h1 {
+  font-size: 20px; /* Smaller headline */
+  margin: 0;
+  font-weight: 700;
+  color: white;
+}
+
+.hero-text .subtitle {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 8px;
+  color: white;
+}
+
+/* ========== Section Cards ========== */
+section {
+  background: white;
+  color: #0b0505; /* Make text readable inside white cards */
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+}
+/* Light theme (default) */
+body.light-mode {
+  background: #f7f9fc;
+  color: #0b0505;
+}
+body.light-mode section {
+  background: white;
+  color: #0b0505;
+}
+body.light-mode header {
+  background: #3f015c;
+  color: white;
+}
+
+/* Dark theme */
+body.dark-mode {
+  background: #121212;
+  color: #f5f5f5;
+}
+body.dark-mode section {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+body.dark-mode header {
+  background: #2a003f;
+  color: white;
+}
+
+/* Theme toggle button style */
+#toggle-theme {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+}
+
