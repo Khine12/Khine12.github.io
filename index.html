@@ -4,48 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Khine Zar Hein | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-mode">
   <header class="hero">
     <div class="hero-container">
-      <button id="toggle-theme">🌙</button>
+      <button id="toggle-theme" aria-label="Toggle Dark Mode">☪️</button>
       <img src="img/photo.jpeg" alt="Khine Zar Hein profile photo" class="profile-pic-side">
       <div class="hero-text">
         <h1>Hello, I'm Khine Zar Hein.</h1>
-        <p class="subtitle">CS Student at Cal Poly Pomona | Open to Software Engineer Internships | Class of 2027</p>
+        <p class="subtitle">Aspiring Software Engineer | CS Student @ Cal Poly Pomona | Class of 2027</p>
+        <p class="subtitle">Open to remote opportunities during the academic year and in-person roles during summer breaks</p>
       </div>
     </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi! I’m Khine Zar Hein, a Computer Science student at Cal Poly Pomona with an associate degree earned in 2025 and a growing passion for software development.</p>
-    <p>I’m currently focused on gaining real-world experience through hands-on projects and preparing for internships in software engineering and web development. My interests include front-end development, problem solving, and designing clean, user-friendly digital experiences.</p>
-    <p>Outside of tech, I’m a cat lover and coffee enthusiast — a good cup of coffee keeps me going during long coding sessions and late-night debugging.</p>
-    <p>I’m open to internship opportunities where I can contribute, learn from others, and collaborate on meaningful projects.</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi! I’m Khine Zar Hein, a Computer Science student at Cal Poly Pomona with an associate degree earned in 2025 and a growing passion for software development.</p>
+      <p>I enjoy front-end development, problem solving, and building clean, user-friendly digital experiences. I'm currently working on hands-on projects to prepare for real-world opportunities and future internships.</p>
+      <p>Outside of tech, I’m a cat lover and coffee enthusiast — a good cup of coffee keeps me going during long nights of coding and debugging!</p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p><em>Coming soon... I'm currently working on personal projects to showcase my skills.</em></p>
-  </section>
+    <section id="projects">
+      <h2>Projects</h2>
 
-  <section id="resume">
-    <h2>Resume</h2>
-    <p><em>Coming soon...currently working on it!</em></p>
-  </section>
+      <div class="project">
+        <p class="subtitle">🌐 Personal Portfolio Website</p>
+        <p>Designed and developed a responsive website to showcase my background, projects, and contact information. Built using HTML, CSS, and JavaScript with a light/dark mode toggle.</p>
+        <a href="https://khine12.github.io/" target="_blank">Live Site</a> |
+        <a href="https://github.com/Khine12/Khine12.github.io" target="_blank">GitHub</a>
+      </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: khinezarhein1@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/khine-zar-hein" target="_blank">linkedin.com/in/khine-zar-hein</a></p>
-    <p>GitHub: <a href="https://github.com/Khine12" target="_blank">github.com/Khine12</a></p>
-  </section>
+      <div class="project">
+        <p class="subtitle">📝 Weekly To-Do Tracker</p>
+        <p>Built a weekly planner web app with collapsible day sections, task tracking, summary generation, and theme switching. Focused on clean UI and real-life usefulness.</p>
+        <a href="https://khine12.github.io/Weekly-To-Do-Tracker/" target="_blank">Live Site</a> |
+        <a href="https://github.com/Khine12/Weekly-To-Do-Tracker" target="_blank">GitHub</a>
+      </div>
+
+      <div class="project upcoming">
+        <p class="subtitle">🔜 Upcoming Projects</p>
+        <ul>
+          <li> Budget Buddy: Monthly expense tracking web app for personal budgeting</li>
+          <li>  Shared Home Tasks: Group-based house chore scheduler and communication platform</li>
+          <li> Mini Online Shop: Simple e-commerce website with checkout/payment features</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Languages: HTML, CSS, JavaScript, Python, C, C++</li>
+        <li>Tools: Git & GitHub, VS Code</li>
+        <li>Soft Skills: Organized, dependable, adaptable, eager to learn, good communication</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p>California State Polytechnic University, Pomona<br>
+      B.S. in Computer Science — Class of 2027<br>
+      Transferred from Los Angeles City College (Associate Degree, 2025)</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:khinezarhein1@gmail.com">khinezarhein1@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/khine-zar-hein" target="_blank">linkedin.com/in/khine-zar-hein</a></p>
+      <p>GitHub: <a href="https://github.com/Khine12" target="_blank">github.com/Khine12</a></p>
+      <p>Resume: <a href="Khine_Zar_Hein_Resume.pdf" target="_blank">View PDF</a></p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Khine Zar Hein. Built with 💻 and ☕</p>
+    <p style="text-align: center;">Khine Zar Hein | Built with 💻 and ☕ | Based in the US</p>
   </footer>
 
   <script src="js/main.js"></script>
