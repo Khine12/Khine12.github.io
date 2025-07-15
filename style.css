@@ -7,7 +7,7 @@ body {
 
 /* Light theme (default) */
 body.light-mode {
-  background: #f7f9fc;
+  background: #e7be7df8;
   color: #0b0505;
 }
 body.light-mode section {
@@ -15,7 +15,7 @@ body.light-mode section {
   color: #0b0505;
 }
 body.light-mode header {
-  background: #f7c87ef8;
+  background: #f7c77af8;
   color: black;
 }
 body.light-mode .profile-pic-side {
