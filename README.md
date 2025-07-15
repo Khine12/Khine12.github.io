@@ -19,7 +19,9 @@ This is my personal portfolio website, built to showcase my background, goals, a
 - Light and dark theme toggle  
 - About Me section  
 - Projects showcase (more to come!)  
+- Downloadable resume (PDF link)
 - Clean, responsive design
+
 
 ---
 
@@ -33,6 +35,7 @@ This is my personal portfolio website, built to showcase my background, goals, a
 
 ## 🚀 What's Coming Next
 
-- Add filtering or tags to better organize projects  
-- Improve mobile responsiveness for a smoother user experience  
-- Continue adding new projects and refining UI/UX
+- Add filtering or tags to better organize projects
+- Keep improving mobile responsiveness
+- Add new projects and continue refining design
+
