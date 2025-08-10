@@ -1,13 +1,11 @@
-/* ========== Global Styles ========== */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Light theme (default) */
 body.light-mode {
-  background: #f3e6d1; /* Softer beige than current */
+  background: #f3e6d1; 
   color: #0b0505;
 }
 body.light-mode section {
@@ -25,7 +23,6 @@ body.light-mode a {
   color: #0a58ca;
 }
 
-/* Dark theme */
 body.dark-mode {
   background: #121212;
   color: #f5f5f5;
@@ -45,7 +42,6 @@ body.dark-mode a {
   color: #8ab4f8;
 }
 
-/* ========== Header / Hero Section ========== */
 header {
   padding: 40px 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -83,7 +79,6 @@ header {
   margin-top: 8px;
 }
 
-/* ========== Section Cards ========== */
 section {
   border-radius: 12px;
   padding: 2rem;
@@ -98,7 +93,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-/* ====== Project Styles (Updated) ====== */
 .project .subtitle {
   font-weight: 600;
   margin-bottom: 0.4rem;
@@ -113,11 +107,10 @@ h2 {
 }
 .project .note {
   font-size: 0.9rem;
-  color: #b4bac7; /* muted text */
+  color: #b4bac7; 
   margin-top: 0.4rem;
 }
 
-/* ========== Theme Toggle Button ========== */
 #toggle-theme {
   position: absolute;
   top: 20px;
@@ -132,7 +125,6 @@ h2 {
   transform: scale(1.0);
 }
 
-/* ========== Footer ========== */
 footer {
   padding: 2rem;
   font-size: 0.9rem;
@@ -148,14 +140,28 @@ html {
 }
 
 .project-tech {
-  font-size: 0.95rem;          /* slightly smaller than normal text */
-  font-weight: 500;           /* medium weight for balance */
-  color: #bbb;                /* softer gray for dark mode */
+  font-size: 0.95rem;          
+  font-weight: 500;           
+  color: #bbb;                
   margin-top: 4px;
   margin-bottom: 8px;
 }
 
-/* Light mode adjustment */
 body.light-mode .project-tech {
-  color: #777777;                /* softer dark gray for light mode */
+  color: #777777;                
+}
+
+@media (max-width: 600px) {
+  .project-tech {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  section {
+    padding: 1.5rem; 
+  }
+
+  h2 {
+    font-size: 1rem; 
+  }
 }
