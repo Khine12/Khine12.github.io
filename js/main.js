@@ -1,20 +1,23 @@
 const toggleBtn = document.getElementById('toggle-theme');
 
-// Set initial icon
-if (document.body.classList.contains('dark-mode')) {
-  toggleBtn.textContent = '🌞';
-} else {
-  toggleBtn.textContent = '🌚';
+function applyTheme(theme) {
+  document.body.classList.remove('dark-mode', 'light-mode');
+  document.body.classList.add(theme);
+  toggleBtn.textContent = theme === 'dark-mode' ? '🌞' : '🌚';
+  localStorage.setItem('theme', theme);
 }
 
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  document.body.classList.toggle('light-mode');
-
-  // Toggle icon
-  if (document.body.classList.contains('dark-mode')) {
-    toggleBtn.textContent = '🌞';
+// Init: use saved theme if present; otherwise default to dark
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark-mode' || saved === 'light-mode') {
+    applyTheme(saved);
   } else {
-    toggleBtn.textContent = '🌚';
+    applyTheme('dark-mode'); // default
   }
+})();
+
+toggleBtn.addEventListener('click', () => {
+  const next = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+  applyTheme(next);
 });

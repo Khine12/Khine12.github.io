@@ -7,7 +7,7 @@ body {
 
 /* Light theme (default) */
 body.light-mode {
-  background: #e7be7df8;
+  background: #f3e6d1; /* Softer beige than current */
   color: #0b0505;
 }
 body.light-mode section {
@@ -98,6 +98,25 @@ h2 {
   font-size: 1.2rem;
 }
 
+/* ====== Project Styles (Updated) ====== */
+.project .subtitle {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+.project ul {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+}
+.project li {
+  margin: 0.25rem 0;
+}
+.project .note {
+  font-size: 0.9rem;
+  color: #b4bac7; /* muted text */
+  margin-top: 0.4rem;
+}
+
 /* ========== Theme Toggle Button ========== */
 #toggle-theme {
   position: absolute;
@@ -123,6 +142,20 @@ footer {
 footer p {
   margin: 0;
 }
+
 html {
   scroll-behavior: smooth;
+}
+
+.project-tech {
+  font-size: 0.95rem;          /* slightly smaller than normal text */
+  font-weight: 500;           /* medium weight for balance */
+  color: #bbb;                /* softer gray for dark mode */
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* Light mode adjustment */
+body.light-mode .project-tech {
+  color: #777777;                /* softer dark gray for light mode */
 }

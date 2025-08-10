@@ -1,94 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Khine Zar Hein | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="dark-mode">
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-container">
       <button id="toggle-theme" aria-label="Toggle Dark Mode">☪️</button>
-      <img src="img/photo.jpeg" alt="Khine Zar Hein profile photo" class="profile-pic-side">
+
+      <!-- Update this path to your chosen LinkedIn photo -->
+      <img src="img/Khine_photo.jpeg" alt="Khine Zar Hein profile photo" class="profile-pic-side">
+
       <div class="hero-text">
         <h1>Hello, I'm Khine Zar Hein.</h1>
-        <p class="subtitle">Aspiring Software Engineer | CS Student @ Cal Poly Pomona | Class of 2027</p>
+        <p class="subtitle">Full-Stack Web Developer | CS Student @ Cal Poly Pomona (Class of 2027)</p>
         <p class="subtitle">Open to remote opportunities during the academic year and in-person roles during summer breaks</p>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- ABOUT -->
     <section id="about">
-      <h2>About Me</h2>
-      <p>Hi! I’m Khine Zar Hein, a Computer Science student at Cal Poly Pomona with an associate degree earned in 2025 and a growing passion for software development.</p>
-      <p>I enjoy front-end development, problem solving, and building clean, user-friendly digital experiences. I'm currently working on hands-on projects to prepare for real-world opportunities and future internships.</p>
-      <p>Outside of tech, I’m a cat lover and coffee enthusiast — a good cup of coffee keeps me going during long nights of coding and debugging!</p>
+      <h2>👩‍💻About Me</h2>
+      <p>I’m passionate about building clean, responsive web applications with secure authentication, real-time functionality, and intuitive user experiences. My full-stack projects — <strong>CozyChores</strong> and <strong>RhythmTasks</strong> — were developed using JavaScript, HTML/CSS, and Firebase to solve real-world problems and deliver a smooth, engaging user experience.</p>
+      <p>I’m currently focused on sharpening my technical skills, strengthening my problem-solving abilities, and preparing for software engineering internships through hands-on development and coding interview practice.</p>
+      <p>Outside of coding, I enjoy listening to music, swimming, and staying focused with a good cup of coffee during late-night coding sessions.</p>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects">
       <h2>Projects</h2>
 
+      <!-- CozyChores -->
       <div class="project">
-        <p class="subtitle">🌐 Personal Portfolio Website</p>
-        <p>Designed and developed a responsive website to showcase my background, projects, and contact information. Built using HTML, CSS, and JavaScript with a light/dark mode toggle.</p>
-        <a href="https://khine12.github.io/" target="_blank">Live Site</a> |
-        <a href="https://github.com/Khine12/Khine12.github.io" target="_blank">GitHub</a>
-      </div>
-
-      <div class="project">
-        <p class="subtitle">📝 Weekly To-Do Tracker</p>
-        <p>Built a weekly planner web app with collapsible day sections, task tracking, summary generation, and theme switching. Focused on clean UI and real-life usefulness.</p>
-        <a href="https://khine12.github.io/Weekly-To-Do-Tracker/" target="_blank">Live Site</a> |
-        <a href="https://github.com/Khine12/Weekly-To-Do-Tracker" target="_blank">GitHub</a>
-      </div>
-
-      <div class="project">
-        <p class="subtitle">🧹 CozyChores</p>
-        <p>CozyChores is a shared household chore app that helps roommates, couples, or families assign and track chores together.Users can create a group, join with a Group ID, and assign tasks.</p>
-        <p>Note: This is the frontend-only version using localStorage. I'm currently building a full-stack version to enable real-time syncing across multiple phones and devices.</p>
-        <a href="https://khine12.github.io/CozyChores/" target="_blank">Live Site</a> |
-        <a href="https://github.com/khine12/CozyChores" target="_blank">GitHub</a>
-      </div>
- 
-      <div class="project upcoming">
-        <p class="subtitle">🔜 Upcoming Projects</p>
+        <p class="subtitle">🧹 CozyChores — Full-Stack Group Chore Manager</p>
+        <p class="project-tech">JavaScript, HTML, CSS, Firebase Auth, Cloud Firestore, Real-Time Chat</p>
+        <p>Full-stack platform for multi-user households to create groups, assign chores, and track progress in real time.</p>
         <ul>
-          <li> Budget Buddy: Monthly expense tracking web app for personal budgeting</li>
-          <li> Mini Online Shop: Simple e-commerce website with checkout/payment features</li>
+          <li>Secure authentication, role-based access, and cloud-backed storage</li>
+          <li>Real-time group chat with sender identification for better coordination</li>
+          <li>Task filtering: Pending, Completed, Request More Time with completion/undo</li>
+          <li>Mobile-first, responsive UI with dark theme</li>
         </ul>
+        <p class="note">Note: If you sign up via email, the verification email may land in your spam folder.</p>
+        <p>
+          <a href="https://khine12.github.io/CozyChores/" target="_blank" rel="noopener">Live Demo</a> |
+          <a href="https://github.com/Khine12/CozyChores" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <!-- RhythmTasks -->
+      <div class="project">
+        <p class="subtitle">🗓️ RhythmTasks — Full-Stack Weekly Planner</p>
+        <p class="project-tech">JavaScript, HTML, CSS, Firebase Auth, Cloud Firestore, Real-Time Chat</p>
+        <p>Weekly planning app with collapsible day sections, a real-time clock, and customizable task categories.</p>
+        <ul>
+          <li>Secure login, password reset, and multi-device sync via Firebase</li>
+          <li>Interactive weekly summary dashboard to visualize completion trends</li>
+          <li>Fast task editing and clean, mobile-first UI</li>
+        </ul>
+        <p class="note">Note: If you sign up via email, the verification email may land in your spam folder.</p>
+        <p>
+          <a href="https://khine12.github.io/RhythmTasks/index.html" target="_blank" rel="noopener">Live Demo</a> |
+          <a href="https://github.com/Khine12/RhythmTasks" target="_blank" rel="noopener">GitHub</a>
+        </p>
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>Languages: HTML, CSS, JavaScript, Python, C, C++</li>
-        <li>Tools: Git & GitHub, VS Code</li>
-        <li>Soft Skills: Organized, dependable, adaptable, eager to learn, good communication</li>
+        <li><strong>Languages:</strong> JavaScript, HTML, CSS, Python, C, C++</li>
+        <li><strong>Frameworks & Tools:</strong> Firebase Auth, Cloud Firestore, LocalStorage, Git & GitHub, Visual Studio Code</li>
+        <li><strong>Development Skills:</strong> Full-Stack Web Development, Front-End Development, Responsive Web Design, UI/UX Design, Project Management, Web Application Architecture, Real-Time Data Synchronization, Group Chat Integration</li>
+        <li><strong>Soft Skills:</strong> Communication, Teamwork, Problem-Solving, Adaptability</li>
       </ul>
     </section>
 
+    <!-- EDUCATION -->
     <section id="education">
       <h2>Education</h2>
       <p>California State Polytechnic University, Pomona<br>
-      B.S. in Computer Science — Class of 2027<br>
-      Transferred from Los Angeles City College (Associate Degree, 2025)</p>
+         B.S. in Computer Science — Expected Dec 2027<br>
+         Transferred from Los Angeles City College (Associate Degree, 2025)</p>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:khinezarhein1@gmail.com">khinezarhein1@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/khine-zar-hein" target="_blank">linkedin.com/in/khine-zar-hein</a></p>
-      <p>GitHub: <a href="https://github.com/Khine12" target="_blank">github.com/Khine12</a></p>
-      <p>Resume: <a href="Khine_Zar_Hein_Resume.pdf" target="_blank">View PDF</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/khine-zar-hein" target="_blank" rel="noopener">linkedin.com/in/khine-zar-hein</a></p>
+      <p>GitHub: <a href="https://github.com/Khine12" target="_blank" rel="noopener">github.com/Khine12</a></p>
+      <p>Resume: <a href="Khine_Zar_Hein_SWE_Internship_Resume.pdf" target="_blank">View PDF</a></p>
     </section>
   </main>
 
   <footer>
-    <p style="text-align: center;">Khine Zar Hein | Built with 💻 and ☕ | Based in the US</p>
+    <p style="text-align:center;">Khine Zar Hein | Built with 💻 and ☕ | Based in the US</p>
   </footer>
 
   <script src="js/main.js"></script>
