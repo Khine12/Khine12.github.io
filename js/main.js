@@ -7,13 +7,12 @@ function applyTheme(theme) {
   localStorage.setItem('theme', theme);
 }
 
-// Init: use saved theme if present; otherwise default to dark
 (function initTheme() {
   const saved = localStorage.getItem('theme');
   if (saved === 'dark-mode' || saved === 'light-mode') {
     applyTheme(saved);
   } else {
-    applyTheme('dark-mode'); // default
+    applyTheme('dark-mode'); 
   }
 })();
 
