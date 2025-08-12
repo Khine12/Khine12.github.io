@@ -105,11 +105,6 @@ h2 {
 .project li {
   margin: 0.25rem 0;
 }
-.project .note {
-  font-size: 0.9rem;
-  color: #b4bac7; 
-  margin-top: 0.4rem;
-}
 
 #toggle-theme {
   position: absolute;
