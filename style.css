@@ -146,6 +146,10 @@ body.light-mode .project-tech {
   color: #777777;                
 }
 
+#coursework p { margin: 0.35rem 0; line-height: 1.5; }
+#coursework strong { font-weight: 600; }
+
+
 @media (max-width: 600px) {
   .project-tech {
     font-size: 0.85rem;
