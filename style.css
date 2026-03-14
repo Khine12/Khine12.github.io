@@ -2,20 +2,21 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 a {
   text-decoration: none;
 }
 
+/* Light Mode */
 body.light-mode {
   background: #f3e6d1;
   color: #0b0505;
@@ -40,7 +41,7 @@ body.light-mode a {
 }
 
 body.light-mode .project-tech {
-  color: #777777;
+  color: #666666;
 }
 
 body.light-mode .hero-links a {
@@ -54,6 +55,11 @@ body.light-mode .hero-links a:hover {
   transform: translateY(-1px);
 }
 
+body.light-mode .project-links a {
+  color: #0a58ca;
+}
+
+/* Dark Mode */
 body.dark-mode {
   background: #121212;
   color: #f5f5f5;
@@ -77,9 +83,29 @@ body.dark-mode a {
   color: #8ab4f8;
 }
 
+body.dark-mode .project-tech {
+  color: #c7c7c7;
+}
+
+body.dark-mode .hero-links a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+body.dark-mode .hero-links a:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+body.dark-mode .project-links a {
+  color: #8ab4f8;
+}
+
+/* Header / Hero */
 header {
-  position: relative; 
-  padding: 44px 20px;
+  position: relative;
+  padding: 50px 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -103,6 +129,10 @@ header {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 
+.hero-text {
+  max-width: 620px;
+}
+
 .hero-text h1 {
   font-size: 26px;
   margin: 0;
@@ -122,7 +152,7 @@ header {
 }
 
 .hero-links {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -135,17 +165,6 @@ header {
   font-weight: 600;
   font-size: 14px;
   transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
-}
-
-body.dark-mode .hero-links a {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-body.dark-mode .hero-links a:hover {
-  background: rgba(255, 255, 255, 0.14);
-  transform: translateY(-1px);
 }
 
 #toggle-theme {
@@ -169,10 +188,11 @@ body.light-mode #toggle-theme {
   opacity: 0.95;
 }
 
+/* Sections */
 section {
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 2rem;
-  margin: 2rem auto;
+  margin: 1.6rem auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   max-width: 900px;
   transition: background-color 0.3s, color 0.3s;
@@ -180,12 +200,23 @@ section {
 
 h2 {
   margin-top: 0;
-  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
   letter-spacing: 0.2px;
 }
 
 p {
   line-height: 1.65;
+}
+
+/* Project / Open Source Cards */
+.project {
+  padding: 1.2rem 0;
+}
+
+.project + .project {
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  margin-top: 1.2rem;
 }
 
 .project .subtitle {
@@ -197,29 +228,51 @@ p {
 .project-tech {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #bbb;
   margin-top: 4px;
   margin-bottom: 10px;
+  line-height: 1.5;
 }
 
 .project ul {
-  margin: 0.6rem 0 0;
-  padding-left: 1.1rem;
+  margin: 0.7rem 0 0;
+  padding-left: 1.15rem;
 }
 
 .project li {
-  margin: 0.28rem 0;
-}
-
-#coursework p {
   margin: 0.35rem 0;
   line-height: 1.6;
 }
 
-#coursework strong {
-  font-weight: 600;
+.project-links {
+  margin-top: 0.9rem;
+  font-weight: 500;
 }
 
+.project-links a {
+  margin-right: 10px;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* Skills */
+#skills ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+#skills li {
+  margin: 0.45rem 0;
+  line-height: 1.6;
+}
+
+/* Contact */
+#contact p {
+  margin: 0.45rem 0;
+}
+
+/* Footer */
 footer {
   padding: 2rem;
   font-size: 0.9rem;
@@ -231,6 +284,7 @@ footer p {
   margin: 0;
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   header {
     padding: 40px 16px;
@@ -238,6 +292,10 @@ footer p {
 
   .hero-container {
     text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
   }
 
   .profile-pic-side {
@@ -259,7 +317,7 @@ footer p {
 
   section {
     padding: 1.5rem;
-    margin: 1.5rem 12px;
+    margin: 1.2rem 12px;
   }
 
   h2 {
