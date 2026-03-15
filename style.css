@@ -283,6 +283,23 @@ footer {
 footer p {
   margin: 0;
 }
+.hero {
+  position: relative;
+}
+
+.hero-container {
+  position: relative;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-links {
+  position: relative;
+  z-index: 3;
+}
 
 /* Mobile */
 @media (max-width: 600px) {
