@@ -15,15 +15,15 @@
 
       <img src="img/Khine_photo.jpeg" alt="Khine Zar Hein profile photo" class="profile-pic-side">
 
-     <div class="hero-text">
+      <div class="hero-text">
         <h1>Hello, I'm Khine Zar Hein.</h1>
         <p>Computer Science student @ Cal Poly Pomona (Class of 2027)</p>
- 
+
         <p class="subtitle">
           Full-stack developer focused on backend systems, production reliability, and open source.
           Building real APIs, contributing to platforms used by thousands, and pursuing software engineering internships.
         </p>
- 
+
         <div class="hero-links">
           <a href="#open-source">Open Source</a>
           <a href="#projects">Projects</a>
@@ -32,49 +32,50 @@
       </div>
     </div>
   </header>
- 
+
   <main>
     <section id="about">
       <h2>👩‍💻 About Me</h2>
- 
+
       <p>
         I'm a Computer Science student at Cal Poly Pomona with a strong foundation in
         <strong>full-stack development</strong>, <strong>backend systems</strong>, and
         <strong>production reliability</strong>. I enjoy building software that solves real problems
         — with clean architecture, real test coverage, and attention to how things actually behave under load.
       </p>
- 
+
       <p>
-        I've built and deployed production-grade systems including a <strong>Flask REST API</strong> with
-        Redis caching, Nginx load balancing, and CI/CD that sustained 500 concurrent users at 76 RPS with
-        zero failures. I'm also building <strong>ShiftSync</strong>, a full-stack shift scheduling platform
-        using Next.js and Express.js with a real PostgreSQL backend, as a collaborative team project.
+        I've built and deployed production-grade systems including <strong>Inventra</strong>, a full-stack
+        inventory and sales platform with JWT auth, automated email alerts, and analytics — deployed across
+        4 cloud services with CI/CD. I also built a <strong>Flask REST API</strong> during the MLH Production
+        Engineering Hackathon with Redis caching, Nginx load balancing, and CI/CD that sustained 500 concurrent
+        users at 76 RPS with zero failures.
       </p>
- 
+
       <p>
-        I also contribute to <strong>Submitty</strong>, an open-source university grading platform,
-        where I've submitted 5 pull requests covering Cypress E2E testing, PHP bug fixes, and access
-        control improvements. I'm also completing <strong>CodePath's Advanced Technical Interview Prep</strong> program.
+        I contribute to <strong>Submitty</strong>, an open-source university grading platform used by thousands
+        of students and instructors, where I've submitted 5 pull requests across grading, privacy, and access
+        control systems. I'm also completing <strong>CodePath's Advanced Technical Interview Prep</strong> program.
       </p>
     </section>
- 
+
     <section id="open-source">
       <h2>🌍 Open Source Contributions</h2>
- 
+
       <div class="project">
         <p class="subtitle">🛠️ Submitty — Open Source Contributor</p>
         <p class="project-tech">Cypress • PHP • JavaScript • GitHub Actions • CI Debugging</p>
- 
+
         <p>
           Submitty is a production course management and grading platform used by universities.
           I've been contributing since March 2026.
         </p>
- 
+
         <ul>
-          <li>Contributed 5 pull requests (1 merged, 4 in review) improving testing infrastructure, grading workflows, and access control</li>
+          <li>Contributed 5 pull requests across grading, privacy, and access control systems to a production university platform used by thousands of students and instructors</li>
+          <li>Wrote Cypress E2E tests validating privacy protections and grading workflows across student, TA, and instructor roles</li>
           <li>Fixed a PHP bug in SubmissionController.php where bulk upload conflict detection assumed filenames always contain a dot, causing silent merge failures</li>
-          <li>Developed Cypress E2E tests validating privacy protections and grading workflows across student, TA, and instructor roles</li>
-          <li>Fixed forum access control incorrectly excluding limited-access graders from staff functionality</li>
+          <li>Audited forum access control patterns across the codebase for an URGENT/PRIORITY issue, fixing limited-access graders incorrectly excluded from staff functionality</li>
           <li>Debugged CI failures, resolved flaky tests, and addressed reviewer feedback across 3+ review cycles</li>
           <li>Filed bug reports identifying CI pipeline failures on main, leading to maintainer fixes</li>
           <li>Reviewed pull requests by other contributors, identifying linting errors and accessibility issues</li>
@@ -93,6 +94,28 @@
 
     <section id="projects">
       <h2>🌟 Projects</h2>
+
+      <div class="project">
+        <p class="subtitle">📦 Inventra — Full-Stack Inventory & Sales Management Platform</p>
+        <p class="project-tech">Python • FastAPI • PostgreSQL • React • TypeScript • JWT • Resend • APScheduler • pytest • GitHub Actions</p>
+
+        <p>
+          A production-grade inventory and sales management platform with a FastAPI backend, React/TypeScript
+          frontend, and full deployment across 4 cloud services.
+        </p>
+
+        <ul>
+          <li>Built a production REST API with FastAPI and PostgreSQL — JWT authentication, automatic stock deduction after each sale, and server-side negative stock guard preventing inventory from going below zero</li>
+          <li>Integrated Resend API to fire email receipts automatically after every transaction via custom domain; added APScheduler to email sellers daily about low-stock and expiring items without any manual trigger</li>
+          <li>Designed analytics endpoint aggregating revenue, cost, and profit per transaction; built React/TypeScript dashboard with Recharts visualizing stock levels and profit trends over time</li>
+          <li>Deployed across 4 cloud services — FastAPI on Render, PostgreSQL on Neon, React frontend on Vercel — with GitHub Actions CI/CD running 9 pytest tests on every push to main</li>
+        </ul>
+
+        <p class="project-links">
+          <a href="https://github.com/Khine12/Inventra" target="_blank" rel="noopener">GitHub</a> |
+          <a href="#" target="_blank" rel="noopener">Live Demo</a>
+        </p>
+      </div>
 
       <div class="project">
         <p class="subtitle">⚙️ MLH Production Engineering Hackathon — Flask REST API</p>
@@ -133,7 +156,8 @@
         <p>Key features include manager shift assignment, employee swap requests, role-based access control, and real-time messaging. Deployed on Vercel and Render.</p>
 
         <p class="project-links">
-          <a href="https://github.com/TAndronaco/CS4800-Worker-Schedule-Project" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/TAndronaco/CS4800-Worker-Schedule-Project" target="_blank" rel="noopener">GitHub</a> |
+          <a href="#" target="_blank" rel="noopener">Live Demo</a>
         </p>
       </div>
 
@@ -174,10 +198,10 @@
     <section id="skills">
       <h2>💻 Technical Skills</h2>
       <ul>
-        <li><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, PHP, SQL, HTML, CSS</li>
-        <li><strong>Backend & Infra:</strong> Flask, Express.js, PostgreSQL, Redis, Nginx, Docker, Gunicorn, GitHub Actions</li>
-        <li><strong>Frontend & Tools:</strong> Next.js, React, Firebase (Auth/Firestore), Git, Cypress, Vagrant, Linux/Unix</li>
-        <li><strong>Core Skills:</strong> Full-Stack Development, REST APIs, Automated Testing, CI/CD, OOP, Data Structures & Algorithms</li>
+        <li><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, SQL, PHP, HTML, CSS</li>
+        <li><strong>Backend & Infra:</strong> FastAPI, Flask, Express.js, PostgreSQL, SQLAlchemy, Redis, Nginx, Docker, APScheduler, Resend API</li>
+        <li><strong>Frontend & Tools:</strong> React, Next.js, TypeScript, Vite, Recharts, Firebase (Auth/Firestore), Git, Cypress, Vagrant, Linux/Unix</li>
+        <li><strong>Core Skills:</strong> Full-Stack Development, REST APIs, Automated Testing, CI/CD, JWT Auth, OOP, Data Structures & Algorithms</li>
       </ul>
     </section>
 
