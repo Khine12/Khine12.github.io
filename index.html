@@ -45,26 +45,46 @@
       </p>
 
       <p>
-  I'm currently building <strong>BurmaLingo</strong>, an English learning web app specifically
-  for Burmese speakers — with a 10-level curriculum, SM-2 spaced repetition algorithm built
-  from scratch, AI writing feedback via OpenAI, and Stripe subscription billing. Live at
-  <a href="https://burmalingo.vercel.app" target="_blank" rel="noopener">burmalingo.vercel.app</a>.
-  I've also built and deployed <strong>Inventra</strong>, a full-stack inventory and sales platform
-  with JWT auth, automated email alerts, and analytics — deployed across 4 cloud services with CI/CD.
-  I also built a <strong>Flask REST API</strong> during the MLH Production Engineering Hackathon
-  with Redis caching, Nginx load balancing, and CI/CD that sustained 500 concurrent users at 76 RPS
-  with zero failures.
-</p>
+        I'm currently building <strong>BurmaLingo</strong>, an English learning web app specifically
+        for Burmese speakers — with a 10-level curriculum, SM-2 spaced repetition algorithm built
+        from scratch, AI writing feedback via OpenAI, and Stripe subscription billing. Live at
+        <a href="https://burmalingo.vercel.app" target="_blank" rel="noopener">burmalingo.vercel.app</a>.
+        I've also built and deployed <strong>Inventra</strong>, a full-stack inventory and sales platform
+        with JWT auth, automated email alerts, and analytics — deployed across 4 cloud services with CI/CD.
+        I also built a <strong>Flask REST API</strong> during the MLH Production Engineering Hackathon
+        with Redis caching, Nginx load balancing, and CI/CD that sustained 500 concurrent users at 76 RPS
+        with zero failures.
+      </p>
 
       <p>
-        I contribute to <strong>Submitty</strong>, an open-source university grading platform used by thousands
-        of students and instructors, where I've submitted 4 pull requests across grading, privacy, and access
-        control systems. I'm also completing <strong>CodePath's Advanced Technical Interview Prep</strong> program.
+        I contribute to open source — <strong>Submitty</strong>, a university grading platform used by thousands
+        of students and instructors (4 pull requests across grading, privacy, and access control), and
+        <strong>LiteLLM</strong>, an AI gateway used by thousands of companies to route requests across
+        100+ LLM providers (45K+ GitHub stars). I completed <strong>CodePath's Advanced Technical Interview Prep</strong> program in April 2026.
       </p>
     </section>
 
     <section id="open-source">
       <h2>🌍 Open Source Contributions</h2>
+
+      <div class="project">
+        <p class="subtitle">🤖 LiteLLM — Open Source Contributor</p>
+        <p class="project-tech">Python • REST APIs • LLM Integration</p>
+
+        <p>
+          LiteLLM is an open-source AI gateway used by thousands of companies to route requests
+          across 100+ LLM providers. It has 45K+ GitHub stars.
+        </p>
+
+        <ul>
+          <li>Fixed a metadata field mismatch in team callback endpoints where GET/DELETE operations read from the wrong nested key, causing callbacks to always return empty regardless of configuration</li>
+        </ul>
+
+        <p class="project-links">
+          <a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">Repository</a> |
+          <a href="https://github.com/BerriAI/litellm/pull/26926" target="_blank" rel="noopener">PR #26926</a>
+        </p>
+      </div>
 
       <div class="project">
         <p class="subtitle">🛠️ Submitty — Open Source Contributor</p>
@@ -98,33 +118,33 @@
       <h2>🌟 Projects</h2>
 
       <div class="project">
-  <p class="subtitle">🌏 BurmaLingo — English Learning Web App for Burmese Speakers
-  <em style="font-size:0.85em; color:#888;"> — In Development</em></p>
-  <p class="project-tech">React • TypeScript • Tailwind CSS • FastAPI • PostgreSQL • MVC •
-  JWT • Stripe • OpenAI API • GitHub Actions</p>
+        <p class="subtitle">🌏 BurmaLingo — English Learning Web App for Burmese Speakers
+        <em style="font-size:0.85em; color:#888;"> — In Development</em></p>
+        <p class="project-tech">React • TypeScript • Tailwind CSS • FastAPI • PostgreSQL • MVC •
+        JWT • Stripe • OpenAI API • GitHub Actions</p>
 
-  <p>
-  In Myanmar, structured English classes from a well-known teacher cost roughly half a month's
-  basic salary — for a seat in a 100-person Zoom class where the teacher doesn't know your name.
-  Cheaper video courses cover only one level with no structured progression. BurmaLingo is the
-  affordable structured alternative — built by a Burmese immigrant who lived this problem.
-</p>
-  <ul>
-    <li>Integrated OpenAI GPT-4o-mini for AI writing and translation feedback — server-side
-     rate limiting enforces free vs paid access per user tier</li>
-    <li>Built SM-2 spaced repetition algorithm from scratch for vocabulary scheduling across
-    a 10-level curriculum (Beginner I through IELTS Practice)</li>
-    <li>Architected FastAPI backend with MVC structure, JWT auth, PostgreSQL, and Stripe webhook
-    integration for free/pro tier access control — rate limits enforced server-side only</li>
-    <li>CI/CD pipeline with GitHub Actions running pytest and TypeScript build checks on every
-    push to main; frontend deployed on Vercel</li>
-  </ul>
+        <p>
+          In Myanmar, structured English classes from a well-known teacher cost roughly half a month's
+          basic salary — for a seat in a 100-person Zoom class where the teacher doesn't know your name.
+          Cheaper video courses cover only one level with no structured progression. BurmaLingo is the
+          affordable structured alternative — built by a Burmese immigrant who lived this problem.
+        </p>
+        <ul>
+          <li>Integrated OpenAI GPT-4o-mini for AI writing and translation feedback — server-side
+           rate limiting enforces free vs paid access per user tier</li>
+          <li>Built SM-2 spaced repetition algorithm from scratch for vocabulary scheduling across
+          a 10-level curriculum (Beginner I through IELTS Practice)</li>
+          <li>Architected FastAPI backend with MVC structure, JWT auth, PostgreSQL, and Stripe webhook
+          integration for free/pro tier access control — rate limits enforced server-side only</li>
+          <li>CI/CD pipeline with GitHub Actions running pytest and TypeScript build checks on every
+          push to main; frontend deployed on Vercel</li>
+        </ul>
 
-  <p class="project-links">
-    <a href="https://github.com/Khine12/burmalingo" target="_blank" rel="noopener">GitHub</a> |
-    <a href="https://burmalingo.vercel.app" target="_blank" rel="noopener">Live (Landing Page)</a>
-  </p>
-</div>
+        <p class="project-links">
+          <a href="https://github.com/Khine12/burmalingo" target="_blank" rel="noopener">GitHub</a> |
+          <a href="https://burmalingo.vercel.app" target="_blank" rel="noopener">Live (Landing Page)</a>
+        </p>
+      </div>
 
       <div class="project">
         <p class="subtitle">📦 Inventra — Full-Stack Inventory & Sales Management Platform</p>
@@ -198,10 +218,10 @@
       <h2>📚 Programs & Training</h2>
       <p>
         <strong>CodePath — Advanced Technical Interview Prep</strong><br>
-        <em>Feb 2026 - May 2026</em>
+        <em>Feb 2026 – April 2026</em>
       </p>
       <p>
-        Selected for a competitive program focused on <strong>data structures</strong>,
+        Completed a competitive program focused on <strong>data structures</strong>,
         <strong>algorithms</strong>, and <strong>Python-based problem solving</strong> under time constraints.
       </p>
     </section>
@@ -209,14 +229,14 @@
     <section id="skills">
       <h2>💻 Technical Skills</h2>
       <ul>
-  <li><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, SQL, PHP, HTML, CSS</li>
-  <li><strong>Backend & Infra:</strong> FastAPI, Flask, Express.js, PostgreSQL, SQLAlchemy,
-  Redis, Nginx, Docker, APScheduler, Resend API, OpenAI API</li>
-  <li><strong>Frontend & Tools:</strong> React, Next.js, TypeScript, Tailwind CSS, Vite,
-  Recharts, Git, Cypress, Vagrant, Linux/Unix</li>
-  <li><strong>Core Skills:</strong> Full-Stack Development, MVC Architecture, LLM Integration,
-  CI/CD, Data Structures & Algorithms</li>
-</ul>
+        <li><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, SQL, PHP, HTML, CSS</li>
+        <li><strong>Backend & Infra:</strong> FastAPI, Flask, Express.js, PostgreSQL, SQLAlchemy,
+        Redis, Nginx, Docker, APScheduler, Resend API, OpenAI API</li>
+        <li><strong>Frontend & Tools:</strong> React, Next.js, TypeScript, Tailwind CSS, Vite,
+        Recharts, Git, Cypress, Vagrant, Linux/Unix</li>
+        <li><strong>Core Skills:</strong> Full-Stack Development, MVC Architecture, LLM Integration,
+        CI/CD, Data Structures & Algorithms</li>
+      </ul>
     </section>
 
     <section id="education">
