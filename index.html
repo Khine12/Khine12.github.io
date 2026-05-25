@@ -3,267 +3,852 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Khine Zar Hein | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Khine Zar Hein</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --border-bright: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #666;
+      --accent: #c8f542;
+      --accent-dim: rgba(200, 245, 66, 0.08);
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Grid texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 7rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.6s;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.8s;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.65rem 1.4rem;
+      border: 1px solid var(--border-bright);
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .btn-primary {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ABOUT */
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .about-text p strong { color: var(--text); font-weight: 500; }
+
+    /* WORK */
+    h2 {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .work-entry {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-entry:last-child { border-bottom: none; }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+
+    .work-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .work-role {
+      font-size: 12px;
+      color: var(--accent);
+      font-family: var(--mono);
+      margin-bottom: 0.75rem;
+    }
+
+    .work-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border-bright);
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* OPEN SOURCE */
+    .os-project { margin-bottom: 3rem; }
+
+    .os-project:last-child { margin-bottom: 0; }
+
+    .os-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .os-stars {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+    }
+
+    .os-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 0.5rem;
+    }
+
+    th {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    td:first-child {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    td a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    td a:hover { text-decoration: underline; }
+
+    .status-merged { color: #4ade80; font-family: var(--mono); font-size: 11px; }
+    .status-review { color: #fbbf24; font-family: var(--mono); font-size: 11px; }
+    .status-closed { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+
+    /* PROJECTS */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-bright);
+      background: var(--surface);
+    }
+
+    .project-card.featured {
+      border-left: 2px solid var(--accent);
+    }
+
+    .project-title {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-subtitle {
+      font-size: 11px;
+      color: var(--accent);
+      font-family: var(--mono);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .project-links-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-links-row a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-bright);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-links-row a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group h3 {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .skill-group li {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* EDUCATION */
+    .edu-entry {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-entry:last-child { border-bottom: none; }
+
+    .edu-school {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-detail {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .contact-item:hover { border-color: var(--accent); }
+
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-item a {
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      section { padding: 5rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="light-mode">
-  <header class="hero">
-    <div class="hero-container">
-      <button id="toggle-theme" aria-label="Toggle Dark Mode">☪️</button>
+  <nav>
+    <span class="nav-name">Khine Zar Hein</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#open-source">OSS</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-      <img src="img/Khine_photo.jpeg" alt="Khine Zar Hein profile photo" class="profile-pic-side">
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Full-Stack Developer · Open Source Contributor</div>
+    <h1>Khine Zar<br>Hein<span>.</span></h1>
+    <p class="hero-sub">
+      CS student at Cal Poly Pomona (Dec 2027). I build production software that solves real problems
+      and contribute to open source used by thousands of people.
+    </p>
+    <div class="hero-links">
+      <a href="Khine_Zar_Hein_Resume.pdf" target="_blank" class="btn btn-primary">Resume</a>
+      <a href="#work" class="btn">Work</a>
+      <a href="#projects" class="btn">Projects</a>
+      <a href="https://github.com/Khine12" target="_blank" class="btn">GitHub</a>
+      <a href="https://linkedin.com/in/khine-zar-hein" target="_blank" class="btn">LinkedIn</a>
+    </div>
+  </section>
 
-      <div class="hero-text">
-        <h1>Hello, I'm Khine Zar Hein.</h1>
-        <p>Computer Science student @ Cal Poly Pomona (Class of 2027)</p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label reveal">// about</div>
+    <div class="about-text reveal">
+      <p>
+        I moved to the US from Myanmar in 2023, self-taught English, and transferred from
+        community college with honors. I build production software that solves problems I've
+        lived — currently running <strong>BurmaLingo</strong>, a launched English learning
+        platform with real paying users.
+      </p>
+      <p>
+        I care about backend systems, production reliability, and writing code that actually
+        holds up — with real test coverage and CI/CD from day one.
+      </p>
+      <p>
+        First-gen CS student. Open to SWE internship opportunities for 2026–2027.
+      </p>
+    </div>
+  </section>
 
-        <p class="subtitle">
-          Full-stack developer focused on backend systems, production reliability, and open source.
-          Building real APIs, contributing to platforms used by thousands, and pursuing software engineering internships.
-        </p>
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-label reveal">// work experience</div>
 
-        <div class="hero-links">
-          <a href="#open-source">Open Source</a>
-          <a href="#projects">Projects</a>
-          <a href="Khine_Zar_Hein_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-        </div>
+    <div class="work-entry reveal">
+      <div class="work-header">
+        <h2><a href="https://burmalingo.vercel.app" target="_blank" style="color:var(--text);text-decoration:none;">BurmaLingo</a></h2>
+        <span class="work-date">Apr 2026 – Present</span>
+      </div>
+      <div class="work-role">Founder & Full-Stack Developer</div>
+      <p class="work-desc">
+        In Myanmar, one level of English class from a reputable teacher costs roughly half a month's
+        basic salary — for a seat in a 100-person Zoom call where the teacher doesn't know your name.
+        I went through every stage of that system before moving here. BurmaLingo is the structured,
+        affordable alternative — launched May 2026 to the Burmese diaspora community.
+      </p>
+      <p class="work-desc">
+        6-level curriculum (Basic → IELTS Preparation) with automatic placement test · GPT-4o IELTS
+        band scoring across all 4 criteria · Stripe subscription billing ($5/month) with webhook-based
+        tier control · SM-2 spaced repetition algorithm built from scratch · XP system with daily
+        streaks and weekly goals.
+      </p>
+      <div class="tags">
+        <span class="tag">React</span><span class="tag">TypeScript</span>
+        <span class="tag">Tailwind CSS</span><span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span><span class="tag">OpenAI GPT-4o</span>
+        <span class="tag">Stripe</span><span class="tag">GitHub Actions</span>
+        <span class="tag">Vercel</span><span class="tag">Railway</span>
+      </div>
+      <div class="project-links-row" style="margin-top:1rem;">
+        <a href="https://github.com/Khine12/burmalingo" target="_blank">GitHub</a>
+        <a href="https://burmalingo.vercel.app" target="_blank">Live</a>
       </div>
     </div>
-  </header>
 
-  <main>
-    <section id="about">
-      <h2>👩‍💻 About Me</h2>
+    <div class="work-entry reveal">
+      <div class="work-header">
+        <h2>CodePath</h2>
+        <span class="work-date">May 2026 – Present</span>
+      </div>
+      <div class="work-role">Teaching Fellow · Applied AI</div>
+      <p class="work-desc">Technical mentorship and support for students in CodePath's Applied AI course.</p>
+    </div>
 
-      <p>
-        I'm a Computer Science student at Cal Poly Pomona with a strong foundation in
-        <strong>full-stack development</strong>, <strong>backend systems</strong>, and
-        <strong>production reliability</strong>. I enjoy building software that solves real problems
-        — with clean architecture, real test coverage, and attention to how things actually behave under load.
+    <div class="work-entry reveal">
+      <div class="work-header">
+        <h2>Dr. Steichen's HCI Lab · Cal Poly Pomona</h2>
+        <span class="work-date">May 2026 – Present</span>
+      </div>
+      <div class="work-role">Research Contributor</div>
+      <p class="work-desc">
+        Migrating a Flutter multilingual math-language learning app to React/Next.js for K-5
+        bilingual students across California schools.
       </p>
+    </div>
+  </section>
 
-      <p>
-        I'm currently building <strong>BurmaLingo</strong>, an English learning web app specifically
-        for Burmese speakers — with a 10-level curriculum, SM-2 spaced repetition algorithm built
-        from scratch, AI writing feedback via OpenAI, and Stripe subscription billing. Live at
-        <a href="https://burmalingo.vercel.app" target="_blank" rel="noopener">burmalingo.vercel.app</a>.
-        I've also built and deployed <strong>Inventra</strong>, a full-stack inventory and sales platform
-        with JWT auth, automated email alerts, and analytics — deployed across 4 cloud services with CI/CD.
-        I also built a <strong>Flask REST API</strong> during the MLH Production Engineering Hackathon
-        with Redis caching, Nginx load balancing, and CI/CD that sustained 500 concurrent users at 76 RPS
-        with zero failures.
-      </p>
+  <!-- OPEN SOURCE -->
+  <section id="open-source">
+    <div class="section-label reveal">// open source</div>
 
-      <p>
-        I contribute to open source — <strong>Submitty</strong>, a university grading platform used by thousands
-        of students and instructors (4 pull requests across grading, privacy, and access control), and
-        <strong>LiteLLM</strong>, an AI gateway used by thousands of companies to route requests across
-        100+ LLM providers (45K+ GitHub stars). I completed <strong>CodePath's Advanced Technical Interview Prep</strong> program in April 2026.
-      </p>
-    </section>
+    <div class="os-project reveal">
+      <div class="os-header">
+        <h2><a href="https://github.com/BerriAI/litellm" target="_blank" style="color:var(--text);text-decoration:none;">LiteLLM</a></h2>
+        <span class="os-stars">45K+ stars</span>
+      </div>
+      <p class="os-desc">AI gateway for routing requests across 100+ LLM providers.</p>
+      <table>
+        <thead>
+          <tr><th>PR</th><th>Description</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/BerriAI/litellm/pull/26926" target="_blank">#26926</a></td>
+            <td>Fix metadata field mismatch in team callback endpoints — GET/DELETE read from wrong key, causing callbacks to always return empty</td>
+            <td><span class="status-review">In Review</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <section id="open-source">
-      <h2>🌍 Open Source Contributions</h2>
+    <div class="os-project reveal">
+      <div class="os-header">
+        <h2><a href="https://github.com/Submitty/Submitty" target="_blank" style="color:var(--text);text-decoration:none;">Submitty</a></h2>
+      </div>
+      <p class="os-desc">Production university grading platform serving thousands of students and instructors.</p>
+      <table>
+        <thead>
+          <tr><th>PR</th><th>Description</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/Submitty/Submitty/pull/12535" target="_blank">#12535</a></td>
+            <td>Cypress E2E tests for overridden grade banner</td>
+            <td><span class="status-merged">Merged</span></td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/Submitty/Submitty/pull/12562" target="_blank">#12562</a></td>
+            <td>Legal name privacy tests across roles</td>
+            <td><span class="status-merged">Merged</span></td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/Submitty/Submitty/pull/12571" target="_blank">#12571</a></td>
+            <td>Bulk upload sample dataset expansion</td>
+            <td><span class="status-review">In Review</span></td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/Submitty/Submitty/pull/12607" target="_blank">#12607</a></td>
+            <td>PHP bug fix: file conflict detection assumed dot in filename, causing silent merge failures</td>
+            <td><span class="status-review">In Review</span></td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/Submitty/Submitty/pull/12715" target="_blank">#12715</a></td>
+            <td>Forum access control audit</td>
+            <td><span class="status-closed">Closed — intentional</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-      <div class="project">
-        <p class="subtitle">🤖 LiteLLM — Open Source Contributor</p>
-        <p class="project-tech">Python • REST APIs • LLM Integration</p>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label reveal">// projects</div>
+    <div class="project-grid">
 
-        <p>
-          LiteLLM is an open-source AI gateway used by thousands of companies to route requests
-          across 100+ LLM providers. It has 45K+ GitHub stars.
+      <div class="project-card featured reveal">
+        <div class="project-title">Inventra</div>
+        <div class="project-subtitle">Full-Stack Inventory & Sales Management Platform</div>
+        <p class="project-desc">
+          Production REST API with automatic stock deduction, server-side negative stock guard,
+          and email receipts via Resend after every transaction. APScheduler sends daily low-stock
+          alerts automatically. Recharts analytics dashboard visualizing revenue, cost, profit,
+          and stock trends. Deployed across 4 cloud services with GitHub Actions CI/CD.
         </p>
-
-        <ul>
-          <li>Fixed a metadata field mismatch in team callback endpoints where GET/DELETE operations read from the wrong nested key, causing callbacks to always return empty regardless of configuration</li>
-        </ul>
-
-        <p class="project-links">
-          <a href="https://github.com/BerriAI/litellm" target="_blank" rel="noopener">Repository</a> |
-          <a href="https://github.com/BerriAI/litellm/pull/26926" target="_blank" rel="noopener">PR #26926</a>
-        </p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span><span class="tag">React</span>
+          <span class="tag">TypeScript</span><span class="tag">Resend</span>
+          <span class="tag">APScheduler</span><span class="tag">pytest</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://github.com/Khine12/Inventra" target="_blank">GitHub Backend</a>
+          <a href="https://github.com/Khine12/inventra-frontend" target="_blank">GitHub Frontend</a>
+          <a href="https://inventra-frontend-alpha.vercel.app/login" target="_blank">Live</a>
+        </div>
       </div>
 
-      <div class="project">
-        <p class="subtitle">🛠️ Submitty — Open Source Contributor</p>
-        <p class="project-tech">Cypress • PHP • JavaScript • GitHub Actions • CI Debugging</p>
-
-        <p>
-          Submitty is a production course management and grading platform used by universities.
-          I've been contributing since March 2026.
+      <div class="project-card reveal">
+        <div class="project-title">MLH PE Hackathon API</div>
+        <div class="project-subtitle">Flask REST API · Production Engineering</div>
+        <p class="project-desc">
+          Redis caching + Nginx load balancing across 2 Gunicorn containers — 500 concurrent
+          users at 76 RPS, 0 failures. Structured JSON logging, Discord alerting with
+          auto-recovery. 83% pytest coverage. Reliability Gold, Scalability Gold,
+          Incident Response Silver.
         </p>
-
-        <ul>
-          <li>Contributed 4 pull requests across grading, privacy, and access control systems to a production university platform used by thousands of students and instructors</li>
-          <li>Wrote Cypress E2E tests validating privacy protections and grading workflows across student, TA, and instructor roles</li>
-          <li>Fixed a PHP bug in SubmissionController.php where bulk upload conflict detection assumed filenames always contain a dot, causing silent merge failures</li>
-          <li>Debugged CI failures, resolved flaky tests, and addressed reviewer feedback across 3+ review cycles</li>
-          <li>Filed bug reports identifying CI pipeline failures on main, leading to maintainer fixes</li>
-          <li>Reviewed pull requests by other contributors, identifying linting errors and accessibility issues</li>
-        </ul>
-
-        <p class="project-links">
-          <a href="https://github.com/Submitty/Submitty" target="_blank" rel="noopener">Repository</a> |
-          <a href="https://github.com/Submitty/Submitty/pull/12535" target="_blank" rel="noopener">PR #12535</a> |
-          <a href="https://github.com/Submitty/Submitty/pull/12562" target="_blank" rel="noopener">PR #12562</a> |
-          <a href="https://github.com/Submitty/Submitty/pull/12571" target="_blank" rel="noopener">PR #12571</a> |
-          <a href="https://github.com/Submitty/Submitty/pull/12607" target="_blank" rel="noopener">PR #12607</a> |
-        </p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>🌟 Projects</h2>
-
-      <div class="project">
-        <p class="subtitle">🌏 BurmaLingo — English Learning Web App for Burmese Speakers
-        <em style="font-size:0.85em; color:#888;"> — In Development</em></p>
-        <p class="project-tech">React • TypeScript • Tailwind CSS • FastAPI • PostgreSQL • MVC •
-        JWT • Stripe • OpenAI API • GitHub Actions</p>
-
-        <p>
-          In Myanmar, structured English classes from a well-known teacher cost roughly half a month's
-          basic salary — for a seat in a 100-person Zoom class where the teacher doesn't know your name.
-          Cheaper video courses cover only one level with no structured progression. BurmaLingo is the
-          affordable structured alternative — built by a Burmese immigrant who lived this problem.
-        </p>
-        <ul>
-          <li>Integrated OpenAI GPT-4o-mini for AI writing and translation feedback — server-side
-           rate limiting enforces free vs paid access per user tier</li>
-          <li>Built SM-2 spaced repetition algorithm from scratch for vocabulary scheduling across
-          a 10-level curriculum (Beginner I through IELTS Practice)</li>
-          <li>Architected FastAPI backend with MVC structure, JWT auth, PostgreSQL, and Stripe webhook
-          integration for free/pro tier access control — rate limits enforced server-side only</li>
-          <li>CI/CD pipeline with GitHub Actions running pytest and TypeScript build checks on every
-          push to main; frontend deployed on Vercel</li>
-        </ul>
-
-        <p class="project-links">
-          <a href="https://github.com/Khine12/burmalingo" target="_blank" rel="noopener">GitHub</a> |
-          <a href="https://burmalingo.vercel.app" target="_blank" rel="noopener">Live (Landing Page)</a>
-        </p>
+        <div class="tags">
+          <span class="tag">Flask</span><span class="tag">Redis</span>
+          <span class="tag">Nginx</span><span class="tag">Docker</span>
+          <span class="tag">Locust</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://github.com/Khine12/PE-Hackathon-Template-2026" target="_blank">GitHub</a>
+        </div>
       </div>
 
-      <div class="project">
-        <p class="subtitle">📦 Inventra — Full-Stack Inventory & Sales Management Platform</p>
-        <p class="project-tech">Python • FastAPI • PostgreSQL • React • TypeScript • JWT • Resend • APScheduler • pytest • GitHub Actions</p>
-
-        <p>
-          A production-grade inventory and sales management platform with a FastAPI backend, React/TypeScript
-          frontend, and full deployment across 4 cloud services.
+      <div class="project-card reveal">
+        <div class="project-title">ShiftSync</div>
+        <div class="project-subtitle">Shift Scheduling Platform · 3-person team</div>
+        <p class="project-desc">
+          Web-based scheduling platform for small businesses. Built Messenger-style in-app
+          messaging with persistent PostgreSQL storage, payroll and earnings pages, and
+          auth state management across the frontend.
         </p>
-
-        <ul>
-          <li>Built a production REST API with FastAPI and PostgreSQL — JWT authentication, automatic stock deduction after each sale, and server-side negative stock guard preventing inventory from going below zero</li>
-          <li>Integrated Resend API to fire email receipts automatically after every transaction via custom domain; added APScheduler to email sellers daily about low-stock and expiring items without any manual trigger</li>
-          <li>Designed analytics endpoint aggregating revenue, cost, and profit per transaction; built React/TypeScript dashboard with Recharts visualizing stock levels and profit trends over time</li>
-          <li>Deployed across 4 cloud services — FastAPI on Render, PostgreSQL on Neon, React frontend on Vercel — with GitHub Actions CI/CD running 9 pytest tests on every push to main</li>
-        </ul>
-
-        <p class="project-links">
-          <a href="https://github.com/Khine12/Inventra" target="_blank" rel="noopener">GitHub</a> |
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
-        </p>
+        <div class="tags">
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+          <span class="tag">Express.js</span><span class="tag">PostgreSQL</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://github.com/TAndronaco/CS4800-Worker-Schedule-Project" target="_blank">GitHub</a>
+          <a href="https://shiftsync13.vercel.app/" target="_blank">Live</a>
+        </div>
       </div>
 
-      <div class="project">
-        <p class="subtitle">⚙️ MLH Production Engineering Hackathon — Flask REST API</p>
-        <p class="project-tech">Python • Flask • PostgreSQL • Redis • Nginx • Docker • Locust • pytest • GitHub Actions</p>
+    </div>
+  </section>
 
-        <p>
-          Built a production-grade REST API during the MLH Production Engineering Hackathon, completing
-          the Reliability, Scalability, and Incident Response quest tracks.
-        </p>
-
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label reveal">// stack</div>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <h3>Languages</h3>
         <ul>
-          <li>Implemented Redis caching and Nginx load balancing across 2 Gunicorn containers — sustained <strong>500 concurrent users at 76 RPS with 0 failures</strong> under Locust load testing</li>
-          <li>Added structured JSON logging, live metrics endpoint, and Discord alerting with auto-recovery detection</li>
-          <li>Achieved 83% pytest coverage across 19 tests</li>
-          <li>Set up GitHub Actions CI/CD pipeline with Docker Compose orchestration and auto-restart policy</li>
+          <li>Python</li><li>TypeScript</li><li>JavaScript</li>
+          <li>Java</li><li>SQL</li><li>PHP</li>
         </ul>
-
-        <p class="project-links">
-          <a href="https://github.com/Khine12/PE-Hackathon-Template-2026" target="_blank" rel="noopener">GitHub</a>
-        </p>
       </div>
-
-      <div class="project">
-        <p class="subtitle">📅 ShiftSync — Full-Stack Shift Scheduling Platform</p>
-        <p class="project-tech">Next.js (TypeScript) • Express.js (TypeScript) • PostgreSQL • JWT Auth</p>
-
-        <p>
-          A collaborative team project building a web-based shift scheduling platform for small and
-          medium-sized businesses. My primary contributions:
-        </p>
-
+      <div class="skill-group">
+        <h3>Backend</h3>
         <ul>
-          <li>Designed and implemented a Messenger-style in-app messaging system with persistent PostgreSQL storage</li>
-          <li>Fixed a bug where managers weren't automatically added to team membership on team creation</li>
-          <li>Fixed authentication state management across the frontend navbar</li>
+          <li>FastAPI</li><li>Flask</li><li>Express.js</li>
+          <li>PostgreSQL</li><li>Redis</li><li>SQLAlchemy</li>
         </ul>
-
-        <p>Key features include manager shift assignment, employee swap requests, role-based access control, and real-time messaging. Deployed on Vercel and Render.</p>
-
-        <p class="project-links">
-          <a href="https://github.com/TAndronaco/CS4800-Worker-Schedule-Project" target="_blank" rel="noopener">GitHub</a> |
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
-        </p>
       </div>
+      <div class="skill-group">
+        <h3>Infra</h3>
+        <ul>
+          <li>Docker</li><li>Nginx</li><li>GitHub Actions</li>
+          <li>Vercel</li><li>Railway</li><li>Linux</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Frontend</h3>
+        <ul>
+          <li>React</li><li>Next.js</li><li>Tailwind CSS</li>
+          <li>Recharts</li><li>Vite</li><li>Cypress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label reveal">// education & training</div>
 
-    <section id="programs">
-      <h2>📚 Programs & Training</h2>
-      <p>
-        <strong>CodePath — Advanced Technical Interview Prep</strong><br>
-        <em>Feb 2026 – April 2026</em>
-      </p>
-      <p>
-        Completed a competitive program focused on <strong>data structures</strong>,
-        <strong>algorithms</strong>, and <strong>Python-based problem solving</strong> under time constraints.
-      </p>
-    </section>
+    <div class="edu-entry reveal">
+      <div class="edu-school">California State Polytechnic University, Pomona</div>
+      <div class="edu-detail">B.S. Computer Science + Data Science minor · GPA 3.72 · Expected Dec 2027</div>
+    </div>
+    <div class="edu-entry reveal">
+      <div class="edu-school">Los Angeles City College</div>
+      <div class="edu-detail">A.A. · GPA 3.7 · Transferred with Honors · 2025</div>
+    </div>
+    <div class="edu-entry reveal">
+      <div class="edu-school">CodePath</div>
+      <div class="edu-detail">Advanced Technical Interview Prep · Feb – Apr 2026</div>
+    </div>
+  </section>
 
-    <section id="skills">
-      <h2>💻 Technical Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, SQL, PHP, HTML, CSS</li>
-        <li><strong>Backend & Infra:</strong> FastAPI, Flask, Express.js, PostgreSQL, SQLAlchemy,
-        Redis, Nginx, Docker, APScheduler, Resend API, OpenAI API</li>
-        <li><strong>Frontend & Tools:</strong> React, Next.js, TypeScript, Tailwind CSS, Vite,
-        Recharts, Git, Cypress, Vagrant, Linux/Unix</li>
-        <li><strong>Core Skills:</strong> Full-Stack Development, MVC Architecture, LLM Integration,
-        CI/CD, Data Structures & Algorithms</li>
-      </ul>
-    </section>
-
-    <section id="education">
-      <h2>🎓 Education</h2>
-      <p>
-        <strong>California State Polytechnic University, Pomona</strong><br>
-        B.S. in Computer Science — Expected Dec 2027 | GPA: 3.7
-      </p>
-      <p>
-        <strong>Los Angeles City College</strong><br>
-        Associate Degree, 2025 | GPA: 3.7 | Transferred with Honors
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>📫 Contact</h2>
-      <p>Email: <a href="mailto:khinezarhein1@gmail.com">khinezarhein1@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/khine-zar-hein" target="_blank" rel="noopener">linkedin.com/in/khine-zar-hein</a></p>
-      <p>GitHub: <a href="https://github.com/Khine12" target="_blank" rel="noopener">github.com/Khine12</a></p>
-      <p>Resume: <a href="Khine_Zar_Hein_Resume.pdf" target="_blank" rel="noopener">View PDF</a></p>
-    </section>
-  </main>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label reveal">// contact</div>
+    <div class="contact-grid reveal">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:khinezarhein1@gmail.com">khinezarhein1@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://linkedin.com/in/khine-zar-hein" target="_blank">linkedin.com/in/khine-zar-hein</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">GitHub</span>
+        <a href="https://github.com/Khine12" target="_blank">github.com/Khine12</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Resume</span>
+        <a href="Khine_Zar_Hein_Resume.pdf" target="_blank">View PDF</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p style="text-align:center;">Khine Zar Hein | Built with 💻 and ☕ | Based in the US</p>
+    Khine Zar Hein
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
