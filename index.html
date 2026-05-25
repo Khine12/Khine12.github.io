@@ -337,18 +337,14 @@
 
     .project-card {
       border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
       padding: 1.75rem;
       transition: border-color 0.2s, background 0.2s;
-      position: relative;
     }
 
     .project-card:hover {
       border-color: var(--border-bright);
       background: var(--surface);
-    }
-
-    .project-card.featured {
-      border-left: 2px solid var(--accent);
     }
 
     .project-title {
@@ -528,6 +524,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#open-source">OSS</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -543,6 +540,7 @@
     <div class="hero-links">
       <a href="Khine_Zar_Hein_Resume.pdf" target="_blank" class="btn btn-primary">Resume</a>
       <a href="#work" class="btn">Work</a>
+      <a href="#open-source" class="btn">OSS</a>
       <a href="#projects" class="btn">Projects</a>
       <a href="https://github.com/Khine12" target="_blank" class="btn">GitHub</a>
       <a href="https://linkedin.com/in/khine-zar-hein" target="_blank" class="btn">LinkedIn</a>
@@ -695,7 +693,7 @@
     <div class="section-label reveal">// projects</div>
     <div class="project-grid">
 
-      <div class="project-card featured reveal">
+      <div class="project-card reveal">
         <div class="project-title">Inventra</div>
         <div class="project-subtitle">Full-Stack Inventory & Sales Management Platform</div>
         <p class="project-desc">
@@ -811,7 +809,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" style="padding-bottom: 3rem;">
     <div class="section-label reveal">// contact</div>
     <div class="contact-grid reveal">
       <div class="contact-item">
