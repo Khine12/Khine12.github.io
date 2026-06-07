@@ -4,21 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Khine Zar Hein</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --border: #1e1e1e;
-      --border-bright: #2a2a2a;
-      --text: #e8e8e8;
-      --muted: #666;
-      --accent: #c8f542;
-      --accent-dim: rgba(200, 245, 66, 0.08);
+      --bg: #080808;
+      --surface: #101010;
+      --surface-2: #161616;
+      --border: #1c1c1c;
+      --border-bright: #2c2c2c;
+      --text: #ebebeb;
+      --text-2: #a0a0a0;
+      --muted: #555;
+      --accent: #d4f54e;
+      --accent-dim: rgba(212, 245, 78, 0.07);
+      --accent-glow: rgba(212, 245, 78, 0.15);
       --mono: 'DM Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
+      --serif: 'Instrument Serif', serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,21 +29,19 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--sans);
-      font-size: 15px;
+      font-family: var(--mono);
+      font-size: 14px;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
-    /* Grid texture */
+    /* subtle dot grid */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size: 40px 40px;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
       pointer-events: none;
       z-index: 0;
     }
@@ -53,42 +54,40 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 4rem;
+      padding: 1.1rem 4rem;
       border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(16px);
     }
 
     .nav-name {
-      font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12px;
       color: var(--accent);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
       text-decoration: none;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--accent); }
 
-    /* SECTIONS */
+    /* LAYOUT */
     section {
       position: relative;
       z-index: 1;
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 7rem 2rem;
       border-bottom: 1px solid var(--border);
@@ -97,12 +96,22 @@
     section:last-of-type { border-bottom: none; }
 
     .section-label {
-      font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--accent);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 120px;
     }
 
     /* HERO */
@@ -111,63 +120,74 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 8rem;
-      border-bottom: 1px solid var(--border);
+      padding-top: 7rem;
     }
 
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--accent);
+    .hero-eyebrow {
+      font-size: 11px;
+      color: var(--muted);
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.2s;
+      animation: fadeUp 0.7s ease forwards 0.1s;
     }
 
-    h1 {
-      font-family: var(--mono);
-      font-size: clamp(2.2rem, 5vw, 4rem);
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6.5rem);
       font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      line-height: 1.0;
       color: var(--text);
+      letter-spacing: -0.02em;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.4s;
+      animation: fadeUp 0.7s ease forwards 0.3s;
     }
 
-    h1 span { color: var(--accent); }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
 
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 15px;
+    .hero-tagline {
+      margin-top: 2rem;
+      font-size: 13px;
+      color: var(--text-2);
+      max-width: 480px;
+      line-height: 1.9;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+
+    .hero-meta {
+      margin-top: 0.6rem;
+      font-size: 11px;
       color: var(--muted);
-      max-width: 520px;
-      line-height: 1.8;
+      letter-spacing: 0.04em;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.6s;
+      animation: fadeUp 0.7s ease forwards 0.65s;
     }
 
-    .hero-links {
+    .hero-cta {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       margin-top: 2.5rem;
       flex-wrap: wrap;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.8s;
+      animation: fadeUp 0.7s ease forwards 0.8s;
     }
 
     .btn {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.65rem 1.4rem;
+      padding: 0.6rem 1.25rem;
       border: 1px solid var(--border-bright);
       color: var(--muted);
       transition: all 0.2s;
+      white-space: nowrap;
     }
 
     .btn:hover {
@@ -186,27 +206,9 @@
       color: var(--bg);
     }
 
-    /* ABOUT */
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 1rem;
-      line-height: 1.85;
-      max-width: 600px;
-    }
-
-    .about-text p strong { color: var(--text); font-weight: 500; }
-
     /* WORK */
-    h2 {
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
     .work-entry {
-      padding: 2rem 0;
+      padding: 2.5rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -218,377 +220,492 @@
       align-items: baseline;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
+    .work-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .work-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .work-title a:hover { color: var(--accent); }
+
     .work-date {
-      font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       white-space: nowrap;
     }
 
     .work-role {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--accent);
-      font-family: var(--mono);
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
     }
 
     .work-desc {
+      color: var(--text-2);
+      font-size: 13px;
+      line-height: 1.85;
+      margin-bottom: 0.6rem;
+      max-width: 680px;
+    }
+
+    .work-bullets {
+      list-style: none;
+      margin: 0.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .work-bullets li {
+      font-size: 13px;
+      color: var(--text-2);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.75;
+    }
+
+    .work-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 0.75rem;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
+      gap: 0.35rem;
+      margin-top: 1rem;
     }
 
     .tag {
-      font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
-      border: 1px solid var(--border-bright);
-      padding: 0.2rem 0.6rem;
-      letter-spacing: 0.04em;
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      letter-spacing: 0.05em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .tag:hover {
+      border-color: var(--border-bright);
+      color: var(--text-2);
+    }
+
+    .entry-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 1.1rem;
+    }
+
+    .entry-links a {
+      font-size: 10px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .entry-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     /* OPEN SOURCE */
     .os-project { margin-bottom: 3rem; }
-
     .os-project:last-child { margin-bottom: 0; }
 
-    .os-header {
+    .os-title-row {
       display: flex;
       align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
     }
 
+    .os-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .os-name a { color: inherit; text-decoration: none; }
+    .os-name a:hover { color: var(--accent); }
+
     .os-stars {
-      font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--accent);
+      letter-spacing: 0.06em;
     }
 
     .os-desc {
+      font-size: 12px;
       color: var(--muted);
-      font-size: 14px;
       margin-bottom: 1rem;
-      line-height: 1.8;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
-      margin-top: 0.5rem;
+      font-size: 12px;
     }
 
     th {
-      font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-align: left;
       padding: 0.5rem 0.75rem;
       border-bottom: 1px solid var(--border);
     }
 
     td {
-      padding: 0.65rem 0.75rem;
+      padding: 0.7rem 0.75rem;
       border-bottom: 1px solid var(--border);
-      color: var(--muted);
+      color: var(--text-2);
       vertical-align: top;
       line-height: 1.6;
     }
 
+    tr:last-child td { border-bottom: none; }
+
     td:first-child {
-      font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--accent);
       white-space: nowrap;
     }
 
-    td a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
+    td a { color: var(--accent); text-decoration: none; }
     td a:hover { text-decoration: underline; }
 
-    .status-merged { color: #4ade80; font-family: var(--mono); font-size: 11px; }
-    .status-review { color: #fbbf24; font-family: var(--mono); font-size: 11px; }
-    .status-closed { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+    .status { font-size: 10px; letter-spacing: 0.04em; white-space: nowrap; }
+    .status-merged { color: #5de888; }
+    .status-review { color: #f5c842; }
+    .status-closed { color: var(--muted); }
 
     /* PROJECTS */
     .project-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
     .project-card {
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      padding: 1.75rem;
-      transition: border-color 0.2s, background 0.2s;
+      background: var(--bg);
+      padding: 2rem;
+      transition: background 0.2s;
+      position: relative;
     }
 
-    .project-card:hover {
-      border-color: var(--border-bright);
-      background: var(--surface);
+    .project-card:hover { background: var(--surface); }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
     }
 
-    .project-title {
-      font-family: var(--mono);
-      font-size: 14px;
+    .project-card:hover::before { height: 100%; }
+
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
       color: var(--text);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.25rem;
     }
 
-    .project-subtitle {
-      font-size: 11px;
+    .project-sub {
+      font-size: 10px;
       color: var(--accent);
-      font-family: var(--mono);
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
     }
 
     .project-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.75;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.8;
       margin-bottom: 1rem;
     }
 
-    .project-links-row {
+    .project-bullets {
+      list-style: none;
+      margin: 0 0 1rem;
       display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+      flex-direction: column;
+      gap: 0.3rem;
     }
 
-    .project-links-row a {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--border-bright);
-      padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
+    .project-bullets li {
+      font-size: 12px;
+      color: var(--text-2);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.7;
     }
 
-    .project-links-row a:hover {
+    .project-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
       color: var(--accent);
-      border-color: var(--accent);
     }
 
     /* SKILLS */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem;
     }
 
-    .skill-group h3 {
-      font-family: var(--mono);
-      font-size: 11px;
+    .skill-group-label {
+      font-size: 10px;
       color: var(--accent);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .skill-group ul {
+    .skill-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.3rem;
     }
 
-    .skill-group li {
-      font-size: 13px;
-      color: var(--muted);
+    .skill-list li {
+      font-size: 12px;
+      color: var(--text-2);
     }
 
     /* EDUCATION */
     .edu-entry {
-      padding: 1.5rem 0;
+      padding: 1.75rem 0;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .edu-entry:last-child { border-bottom: none; }
 
+    .edu-left {}
+
     .edu-school {
-      font-family: var(--mono);
-      font-size: 14px;
+      font-family: var(--serif);
+      font-size: 1.1rem;
       color: var(--text);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .edu-detail {
-      font-size: 13px;
+      font-size: 12px;
+      color: var(--text-2);
+    }
+
+    .edu-date {
+      font-size: 10px;
       color: var(--muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
     }
 
     /* CONTACT */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
     .contact-item {
+      background: var(--bg);
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--border);
-      transition: border-color 0.2s;
+      gap: 0.4rem;
+      transition: background 0.2s;
     }
 
-    .contact-item:hover { border-color: var(--accent); }
+    .contact-item:hover { background: var(--surface); }
 
     .contact-label {
-      font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
     }
 
     .contact-item a {
-      font-size: 13px;
-      color: var(--text);
+      font-size: 12px;
+      color: var(--text-2);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     .contact-item a:hover { color: var(--accent); }
+
+    /* AVAILABILITY BADGE */
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 10px;
+      color: var(--text-2);
+      letter-spacing: 0.06em;
+      margin-top: 1.5rem;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 1s;
+    }
+
+    .avail-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
 
     /* FOOTER */
     footer {
       position: relative;
       z-index: 1;
-      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
       padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       border-top: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
+      letter-spacing: 0.06em;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     /* ANIMATIONS */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(18px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
+      .nav-links { gap: 1rem; }
       section { padding: 5rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .project-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: 1; }
-      .contact-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 2rem; }
+      .hero-name { font-size: 3rem; }
+      .edu-entry { flex-direction: column; gap: 0.3rem; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links li:nth-child(n+4) { display: none; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <span class="nav-name">Khine Zar Hein</span>
+    <span class="nav-name">khine zar hein</span>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work">Experience</a></li>
       <li><a href="#open-source">OSS</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-tag">Full-Stack Developer · Open Source Contributor</div>
-    <h1>Khine Zar<br>Hein<span>.</span></h1>
-    <p class="hero-sub">
-      CS student at Cal Poly Pomona (Dec 2027). I build production software that solves real problems
-      and contribute to open source used by thousands of people.
+    <div class="hero-eyebrow">Full-Stack Developer &nbsp;·&nbsp; Open Source Contributor &nbsp;·&nbsp; CS @ Cal Poly Pomona</div>
+    <h1 class="hero-name">Khine Zar<br>Hein.</h1>
+    <p class="hero-tagline">
+      I build production software that solves real problems and contribute to open source
+      projects used by thousands of people.
     </p>
-    <div class="hero-links">
+    <p class="hero-meta">West Covina, CA &nbsp;·&nbsp; Expected Dec 2027</p>
+    <div class="avail-badge">
+      <span class="avail-dot"></span>
+      Open to SWE internships 2026–2027
+    </div>
+    <div class="hero-cta">
       <a href="Khine_Zar_Hein_Resume.pdf" target="_blank" class="btn btn-primary">Resume</a>
-      <a href="#work" class="btn">Work</a>
-      <a href="#open-source" class="btn">OSS</a>
-      <a href="#projects" class="btn">Projects</a>
       <a href="https://github.com/Khine12" target="_blank" class="btn">GitHub</a>
       <a href="https://linkedin.com/in/khine-zar-hein" target="_blank" class="btn">LinkedIn</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label reveal">// about</div>
-    <div class="about-text reveal">
-      <p>
-        I moved to the US from Myanmar in 2023, self-taught English, and transferred from
-        community college with honors. I build production software that solves problems I've
-        lived — currently running <strong>BurmaLingo</strong>, a launched English learning
-        platform with real paying users.
-      </p>
-      <p>
-        I care about backend systems, production reliability, and writing code that actually
-        holds up — with real test coverage and CI/CD from day one.
-      </p>
-      <p>
-        First-gen CS student. Open to SWE internship opportunities for 2026–2027.
-      </p>
+      <a href="mailto:khinezarhein1@gmail.com" class="btn">Email</a>
     </div>
   </section>
 
   <!-- WORK -->
   <section id="work">
-    <div class="section-label reveal">// work experience</div>
+    <div class="section-label reveal">Experience</div>
 
     <div class="work-entry reveal">
       <div class="work-header">
-        <h2><a href="https://burmalingo.vercel.app" target="_blank" style="color:var(--text);text-decoration:none;">BurmaLingo</a></h2>
+        <div class="work-title">
+          <a href="https://burmalingo.vercel.app" target="_blank">BurmaLingo</a>
+        </div>
         <span class="work-date">Apr 2026 – Present</span>
       </div>
-      <div class="work-role">Founder & Full-Stack Developer</div>
+      <div class="work-role">Founder &amp; Full-Stack Developer</div>
       <p class="work-desc">
-        In Myanmar, one level of English class from a reputable teacher costs roughly half a month's
-        basic salary — for a seat in a 100-person Zoom call where the teacher doesn't know your name.
-        I went through every stage of that system before moving here. BurmaLingo is the structured,
-        affordable alternative — launched May 2026 to the Burmese diaspora community.
+        Founded and launched a production English learning platform for Burmese speakers.
+        6-level curriculum with GPT-4o IELTS band scoring against the student's actual writing,
+        SM-2 spaced repetition built from scratch, and Stripe subscription billing
+        with a manual Facebook-based upgrade path for Myanmar users where Stripe isn't accessible.
+        Launched to the Burmese diaspora community in May 2026 with paying subscribers.
       </p>
-      <p class="work-desc">
-        6-level curriculum (Basic → IELTS Preparation) with automatic placement test · GPT-4o IELTS
-        band scoring across all 4 criteria · Stripe subscription billing ($5/month) with webhook-based
-        tier control · SM-2 spaced repetition algorithm built from scratch · XP system with daily
-        streaks and weekly goals.
-      </p>
+      <ul class="work-bullets">
+        <li>Placement test available to route students to the correct starting level</li>
+        <li>GPT-4o scores across all 4 IELTS criteria, referencing the student's actual submitted writing</li>
+        <li>SM-2 spaced repetition algorithm built from scratch; XP system with daily streaks and weekly goals</li>
+        <li>Stripe webhooks for tier control; manual Facebook upgrade path for Myanmar users</li>
+        <li>Full-stack: React/TypeScript + FastAPI + PostgreSQL across Vercel, Railway, and Neon with CI/CD</li>
+      </ul>
       <div class="tags">
         <span class="tag">React</span><span class="tag">TypeScript</span>
         <span class="tag">Tailwind CSS</span><span class="tag">FastAPI</span>
@@ -596,7 +713,7 @@
         <span class="tag">Stripe</span><span class="tag">GitHub Actions</span>
         <span class="tag">Vercel</span><span class="tag">Railway</span>
       </div>
-      <div class="project-links-row" style="margin-top:1rem;">
+      <div class="entry-links">
         <a href="https://github.com/Khine12/burmalingo" target="_blank">GitHub</a>
         <a href="https://burmalingo.vercel.app" target="_blank">Live</a>
       </div>
@@ -604,84 +721,80 @@
 
     <div class="work-entry reveal">
       <div class="work-header">
-        <h2>CodePath</h2>
-        <span class="work-date">May 2026 – Present</span>
+        <div class="work-title">Dr. Steichen's HCI Lab · Cal Poly Pomona & Santa Clara University</div>
+        <span class="work-date">Jun 2026 – Present</span>
       </div>
-      <div class="work-role">Teaching Fellow · Applied AI</div>
-      <p class="work-desc">Technical mentorship and support for students in CodePath's Applied AI course.</p>
+      <div class="work-role">Research Assistant</div>
+      <ul class="work-bullets">
+        <li>Porting a Flutter multilingual math-language learning app to React/Next.js + Firebase, preserving all 5 game types and 3 language-assist levels (full translation, on-demand translation, hover-word glossary, and text-to-speech) used with bilingual K-5 learners</li>
+        <li>Contributing to an IRB-approved HCI research project on AI-driven personalized multilingual math-language learning in California classroom settings</li>
+      </ul>
     </div>
 
     <div class="work-entry reveal">
       <div class="work-header">
-        <h2>Dr. Steichen's HCI Lab · Cal Poly Pomona</h2>
+        <div class="work-title">CodePath</div>
         <span class="work-date">May 2026 – Present</span>
       </div>
-      <div class="work-role">Research Contributor</div>
-      <p class="work-desc">
-        Migrating a Flutter multilingual math-language learning app to React/Next.js for K-5
-        bilingual students across California schools.
-      </p>
+      <div class="work-role">Tech Fellow</div>
+      <p class="work-desc">Technical support and mentorship for students in CodePath's Applied AI course.</p>
     </div>
   </section>
 
   <!-- OPEN SOURCE -->
   <section id="open-source">
-    <div class="section-label reveal">// open source</div>
+    <div class="section-label reveal">Open Source</div>
 
     <div class="os-project reveal">
-      <div class="os-header">
-        <h2><a href="https://github.com/BerriAI/litellm" target="_blank" style="color:var(--text);text-decoration:none;">LiteLLM</a></h2>
-        <span class="os-stars">45K+ stars</span>
+      <div class="os-title-row">
+        <div class="os-name"><a href="https://github.com/BerriAI/litellm" target="_blank">LiteLLM</a></div>
+        <span class="os-stars">45K+ ★</span>
       </div>
       <p class="os-desc">AI gateway for routing requests across 100+ LLM providers.</p>
       <table>
-        <thead>
-          <tr><th>PR</th><th>Description</th><th>Status</th></tr>
-        </thead>
+        <thead><tr><th>PR</th><th>Description</th><th>Status</th></tr></thead>
         <tbody>
           <tr>
             <td><a href="https://github.com/BerriAI/litellm/pull/26926" target="_blank">#26926</a></td>
             <td>Fix metadata field mismatch in team callback endpoints — GET/DELETE read from wrong key, causing callbacks to always return empty</td>
-            <td><span class="status-review">In Review</span></td>
+            <td><span class="status status-review">In Review</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="os-project reveal">
-      <div class="os-header">
-        <h2><a href="https://github.com/Submitty/Submitty" target="_blank" style="color:var(--text);text-decoration:none;">Submitty</a></h2>
+      <div class="os-title-row">
+        <div class="os-name"><a href="https://github.com/Submitty/Submitty" target="_blank">Submitty</a></div>
       </div>
       <p class="os-desc">Production university grading platform serving thousands of students and instructors.</p>
       <table>
-        <thead>
-          <tr><th>PR</th><th>Description</th><th>Status</th></tr>
-        </thead>
+        <thead><tr><th>PR</th><th>Description</th><th>Status</th></tr></thead>
         <tbody>
           <tr>
             <td><a href="https://github.com/Submitty/Submitty/pull/12535" target="_blank">#12535</a></td>
             <td>Cypress E2E tests for overridden grade banner</td>
-            <td><span class="status-merged">Merged</span></td>
+            <td><span class="status status-merged">Merged</span></td>
           </tr>
           <tr>
             <td><a href="https://github.com/Submitty/Submitty/pull/12562" target="_blank">#12562</a></td>
             <td>Legal name privacy tests across roles</td>
-            <td><span class="status-merged">Merged</span></td>
+            <td><span class="status status-merged">Merged</span></td>
           </tr>
           <tr>
             <td><a href="https://github.com/Submitty/Submitty/pull/12571" target="_blank">#12571</a></td>
             <td>Bulk upload sample dataset expansion</td>
-            <td><span class="status-review">In Review</span></td>
+            <td><span class="status status-review">In Review</span></td>
           </tr>
           <tr>
             <td><a href="https://github.com/Submitty/Submitty/pull/12607" target="_blank">#12607</a></td>
             <td>PHP bug fix: file conflict detection assumed dot in filename, causing silent merge failures</td>
-            <td><span class="status-review">In Review</span></td>
+            <td><span class="status status-review">In Review</span></td>
           </tr>
           <tr>
             <td><a href="https://github.com/Submitty/Submitty/pull/12715" target="_blank">#12715</a></td>
             <td>Forum access control audit</td>
-            <td><span class="status-closed">Closed — intentional</span></td>
+            <td><span class="status status-closed">Closed — intentional</span></td>
           </tr>
         </tbody>
       </table>
@@ -690,63 +803,70 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-label reveal">// projects</div>
-    <div class="project-grid">
+    <div class="section-label reveal">Featured Projects</div>
+    <div class="project-grid reveal">
 
-      <div class="project-card reveal">
-        <div class="project-title">Inventra</div>
-        <div class="project-subtitle">Full-Stack Inventory & Sales Management Platform</div>
-        <p class="project-desc">
-          Production REST API with automatic stock deduction, server-side negative stock guard,
-          and email receipts via Resend after every transaction. APScheduler sends daily low-stock
-          alerts automatically. Recharts analytics dashboard visualizing revenue, cost, profit,
-          and stock trends. Deployed across 4 cloud services with GitHub Actions CI/CD.
-        </p>
+      <div class="project-card">
+        <div class="project-name">Inventra</div>
+        <div class="project-sub">Inventory &amp; Sales Management Platform</div>
+        <ul class="project-bullets">
+          <li>Production REST API with JWT auth, automatic stock deduction, server-side negative stock guard, and Resend API email receipts after every transaction</li>
+          <li>APScheduler sends daily low-stock alerts automatically — no manual trigger</li>
+          <li>Recharts analytics dashboard visualizing revenue, cost, profit, and stock trends over time</li>
+          <li>Deployed across 4 cloud services with GitHub Actions CI/CD</li>
+        </ul>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">FastAPI</span>
           <span class="tag">PostgreSQL</span><span class="tag">React</span>
-          <span class="tag">TypeScript</span><span class="tag">Resend</span>
-          <span class="tag">APScheduler</span><span class="tag">pytest</span>
+          <span class="tag">TypeScript</span><span class="tag">JWT</span>
+          <span class="tag">Resend</span><span class="tag">APScheduler</span>
+          <span class="tag">pytest</span><span class="tag">GitHub Actions</span>
         </div>
-        <div class="project-links-row">
-          <a href="https://github.com/Khine12/Inventra" target="_blank">GitHub Backend</a>
+        <div class="entry-links">
+          <a href="https://github.com/Khine12/inventra" target="_blank">GitHub Backend</a>
           <a href="https://github.com/Khine12/inventra-frontend" target="_blank">GitHub Frontend</a>
           <a href="https://inventra-frontend-alpha.vercel.app/login" target="_blank">Live</a>
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <div class="project-title">MLH PE Hackathon API</div>
-        <div class="project-subtitle">Flask REST API · Production Engineering</div>
-        <p class="project-desc">
-          Redis caching + Nginx load balancing across 2 Gunicorn containers — 500 concurrent
-          users at 76 RPS, 0 failures. Structured JSON logging, Discord alerting with
-          auto-recovery. 83% pytest coverage. Reliability Gold, Scalability Gold,
-          Incident Response Silver.
-        </p>
+      <div class="project-card">
+        <div class="project-name">MLH PE Hackathon — Flask API</div>
+        <div class="project-sub">Production Engineering · Performance &amp; Reliability</div>
+        <ul class="project-bullets">
+          <li>Redis caching + Nginx load balancing across 2 Gunicorn containers — 500 concurrent users at 76 RPS, 0 failures</li>
+          <li>Structured JSON logging, live metrics endpoint, Discord alerting with auto-recovery detection</li>
+          <li>83% pytest coverage across 19 tests</li>
+        </ul>
         <div class="tags">
-          <span class="tag">Flask</span><span class="tag">Redis</span>
-          <span class="tag">Nginx</span><span class="tag">Docker</span>
-          <span class="tag">Locust</span>
+          <span class="tag">Python</span><span class="tag">Flask</span>
+          <span class="tag">Redis</span><span class="tag">Nginx</span>
+          <span class="tag">Docker</span><span class="tag">Locust</span>
+          <span class="tag">GitHub Actions</span>
         </div>
-        <div class="project-links-row">
+        <div style="display:flex;gap:0.75rem;margin-top:0.75rem;font-size:10px;color:var(--text-2);letter-spacing:0.04em;">
+          <span>🥇 Reliability Gold</span>
+          <span>🥇 Scalability Gold</span>
+          <span>🥈 Incident Response Silver</span>
+        </div>
+        <div class="entry-links">
           <a href="https://github.com/Khine12/PE-Hackathon-Template-2026" target="_blank">GitHub</a>
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <div class="project-title">ShiftSync</div>
-        <div class="project-subtitle">Shift Scheduling Platform · 3-person team</div>
-        <p class="project-desc">
-          Web-based scheduling platform for small businesses. Built Messenger-style in-app
-          messaging with persistent PostgreSQL storage, payroll and earnings pages, and
-          auth state management across the frontend.
-        </p>
+      <div class="project-card">
+        <div class="project-name">ShiftSync</div>
+        <div class="project-sub">Shift Scheduling Platform · 3-person team</div>
+        <ul class="project-bullets">
+          <li>Messenger-style in-app messaging system with persistent PostgreSQL storage</li>
+          <li>Pricing, payroll, and earnings frontend pages</li>
+          <li>Auth state management and protected routing across the frontend</li>
+        </ul>
         <div class="tags">
           <span class="tag">Next.js</span><span class="tag">TypeScript</span>
           <span class="tag">Express.js</span><span class="tag">PostgreSQL</span>
+          <span class="tag">JWT</span>
         </div>
-        <div class="project-links-row">
+        <div class="entry-links">
           <a href="https://github.com/TAndronaco/CS4800-Worker-Schedule-Project" target="_blank">GitHub</a>
           <a href="https://shiftsync13.vercel.app/" target="_blank">Live</a>
         </div>
@@ -757,32 +877,32 @@
 
   <!-- SKILLS -->
   <section id="skills">
-    <div class="section-label reveal">// stack</div>
+    <div class="section-label reveal">Stack</div>
     <div class="skills-grid reveal">
-      <div class="skill-group">
-        <h3>Languages</h3>
-        <ul>
+      <div>
+        <div class="skill-group-label">Languages</div>
+        <ul class="skill-list">
           <li>Python</li><li>TypeScript</li><li>JavaScript</li>
           <li>Java</li><li>SQL</li><li>PHP</li>
         </ul>
       </div>
-      <div class="skill-group">
-        <h3>Backend</h3>
-        <ul>
+      <div>
+        <div class="skill-group-label">Backend</div>
+        <ul class="skill-list">
           <li>FastAPI</li><li>Flask</li><li>Express.js</li>
           <li>PostgreSQL</li><li>Redis</li><li>SQLAlchemy</li>
         </ul>
       </div>
-      <div class="skill-group">
-        <h3>Infra</h3>
-        <ul>
+      <div>
+        <div class="skill-group-label">Infra</div>
+        <ul class="skill-list">
           <li>Docker</li><li>Nginx</li><li>GitHub Actions</li>
-          <li>Vercel</li><li>Railway</li><li>Linux</li>
+          <li>Vercel · Railway · Neon</li><li>Linux</li>
         </ul>
       </div>
-      <div class="skill-group">
-        <h3>Frontend</h3>
-        <ul>
+      <div>
+        <div class="skill-group-label">Frontend</div>
+        <ul class="skill-list">
           <li>React</li><li>Next.js</li><li>Tailwind CSS</li>
           <li>Recharts</li><li>Vite</li><li>Cypress</li>
         </ul>
@@ -792,59 +912,48 @@
 
   <!-- EDUCATION -->
   <section id="education">
-    <div class="section-label reveal">// education & training</div>
+    <div class="section-label reveal">Education</div>
 
     <div class="edu-entry reveal">
-      <div class="edu-school">California State Polytechnic University, Pomona</div>
-      <div class="edu-detail">B.S. Computer Science + Data Science minor · GPA 3.72 · Expected Dec 2027</div>
+      <div class="edu-left">
+        <div class="edu-school">Cal Poly Pomona</div>
+        <div class="edu-detail">B.S. Computer Science + Data Science minor &nbsp;·&nbsp; GPA 3.72</div>
+      </div>
+      <span class="edu-date">Aug 2025 – Dec 2027</span>
     </div>
-    <div class="edu-entry reveal">
-      <div class="edu-school">Los Angeles City College</div>
-      <div class="edu-detail">A.A. · GPA 3.7 · Transferred with Honors · 2025</div>
-    </div>
-    <div class="edu-entry reveal">
-      <div class="edu-school">CodePath</div>
-      <div class="edu-detail">Advanced Technical Interview Prep · Feb – Apr 2026</div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" style="padding-bottom: 3rem;">
-    <div class="section-label reveal">// contact</div>
-    <div class="contact-grid reveal">
-      <div class="contact-item">
-        <span class="contact-label">Email</span>
-        <a href="mailto:khinezarhein1@gmail.com">khinezarhein1@gmail.com</a>
+    <div class="edu-entry reveal">
+      <div class="edu-left">
+        <div class="edu-school">Los Angeles City College</div>
+        <div class="edu-detail">A.A. &nbsp;·&nbsp; GPA 3.7 &nbsp;·&nbsp; Transferred with Honors</div>
       </div>
-      <div class="contact-item">
-        <span class="contact-label">LinkedIn</span>
-        <a href="https://linkedin.com/in/khine-zar-hein" target="_blank">linkedin.com/in/khine-zar-hein</a>
+      <span class="edu-date">Feb 2024 – Jun 2025</span>
+    </div>
+
+    <div class="edu-entry reveal">
+      <div class="edu-left">
+        <div class="edu-school">CodePath</div>
+        <div class="edu-detail">Advanced Technical Interview Prep</div>
       </div>
-      <div class="contact-item">
-        <span class="contact-label">GitHub</span>
-        <a href="https://github.com/Khine12" target="_blank">github.com/Khine12</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Resume</span>
-        <a href="Khine_Zar_Hein_Resume.pdf" target="_blank">View PDF</a>
-      </div>
+      <span class="edu-date">Feb – Apr 2026</span>
     </div>
   </section>
 
   <footer>
-    Khine Zar Hein
+    <span>Khine Zar Hein</span>
+    <span>Open to SWE internship opportunities · 2026–2027</span>
   </footer>
 
   <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
   </script>
 
