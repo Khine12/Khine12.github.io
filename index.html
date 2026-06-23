@@ -693,16 +693,18 @@
       </div>
       <div class="work-role">Founder &amp; Full-Stack Developer</div>
       <p class="work-desc">
-        Founded and launched a production English learning platform for Burmese speakers.
-        6-level curriculum with GPT-4o IELTS band scoring against the student's actual writing,
-        SM-2 spaced repetition built from scratch, and Stripe subscription billing
-        with a manual Facebook-based upgrade path for Myanmar users where Stripe isn't accessible.
+        Founded and launched a production English learning platform for Burmese speakers —
+        a 6-level curriculum covering reading, writing, speaking, and listening, with
+        GPT-4o IELTS band scoring against the student's actual writing, SM-2 spaced
+        repetition built from scratch, and Stripe subscription billing with a manual
+        Facebook-based upgrade path for Myanmar users where Stripe isn't accessible.
         Launched to the Burmese diaspora community in May 2026 with paying subscribers.
       </p>
       <ul class="work-bullets">
-        <li>Placement test available to route students to the correct starting level</li>
-        <li>GPT-4o scores across all 4 IELTS criteria, referencing the student's actual submitted writing</li>
-        <li>SM-2 spaced repetition algorithm built from scratch; XP system with daily streaks and weekly goals</li>
+        <li>GPT-4o scoring across all 4 IELTS criteria, referencing the student's actual submitted writing</li>
+        <li>Speaking practice — Azure AI Speech scores pronunciation (accuracy, fluency, prosody) through a browser-to-server audio pipeline (WebM→16 kHz WAV via ffmpeg), with GPT-4o grammar and topic feedback</li>
+        <li>Listening practice — Azure HD text-to-speech pre-generates multi-voice, IELTS-style audio into Azure Blob Storage, served as static MP3 (cost-aware, no per-request generation)</li>
+        <li>SM-2 spaced repetition built from scratch; XP system with daily streaks and weekly goals</li>
         <li>Stripe webhooks for tier control; manual Facebook upgrade path for Myanmar users</li>
         <li>Full-stack: React/TypeScript + FastAPI + PostgreSQL across Vercel, Railway, and Neon with CI/CD</li>
       </ul>
@@ -710,6 +712,7 @@
         <span class="tag">React</span><span class="tag">TypeScript</span>
         <span class="tag">Tailwind CSS</span><span class="tag">FastAPI</span>
         <span class="tag">PostgreSQL</span><span class="tag">OpenAI GPT-4o</span>
+        <span class="tag">Azure AI Speech</span><span class="tag">Azure Blob Storage</span>
         <span class="tag">Stripe</span><span class="tag">GitHub Actions</span>
         <span class="tag">Vercel</span><span class="tag">Railway</span>
       </div>
@@ -890,7 +893,7 @@
         <div class="skill-group-label">Backend</div>
         <ul class="skill-list">
           <li>FastAPI</li><li>Flask</li><li>Express.js</li>
-          <li>PostgreSQL</li><li>Redis</li><li>SQLAlchemy</li>
+          <li>PostgreSQL</li><li>Redis</li><li>SQLAlchemy · Alembic</li>
         </ul>
       </div>
       <div>
@@ -905,6 +908,13 @@
         <ul class="skill-list">
           <li>React</li><li>Next.js</li><li>Tailwind CSS</li>
           <li>Recharts</li><li>Vite</li><li>Cypress</li>
+        </ul>
+      </div>
+      <div>
+        <div class="skill-group-label">AI &amp; Services</div>
+        <ul class="skill-list">
+          <li>OpenAI GPT-4o</li><li>Azure AI Speech</li><li>Azure Blob Storage</li>
+          <li>Stripe</li><li>Resend</li>
         </ul>
       </div>
     </div>
