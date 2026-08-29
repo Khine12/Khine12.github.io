@@ -357,6 +357,14 @@
       margin-bottom: 1rem;
     }
 
+    .os-summary {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -691,9 +699,8 @@
       </div>
       <div class="work-role">Website Intern</div>
       <ul class="work-bullets">
-        <li>Audited college websites across a multi-campus district for accessibility, clarity, and content ownership, driving a district-wide accessibility initiative</li>
-        <li>Attended cross-departmental IT, CS, and Web Services meetings, tracking daily workstreams and coordinating via Microsoft Teams and Planner</li>
-        <li>Ramping up on Drupal, YAML, Twig, and SASS/SCSS for the College CMS platform </li>
+        <li>Led a document-ownership audit across 7 LACCD campuses (LAHC, LAMC, LASC, LATTC, LAPC, LAVC, WLAC), correcting file URLs/types and flagging unowned CMS content to support a district-wide accessibility initiative</li>
+        <li>Picked up Drupal, YAML, Twig, and SASS/SCSS for the College CMS platform, coordinating deliverables across IT, CS, and Web Services teams via Microsoft Teams and Planner</li>
       </ul>
     </div>
 
@@ -705,9 +712,10 @@
       <div class="work-role">Website Developer Intern</div>
       <ul class="work-bullets">
         <li>Ported a Flutter multilingual math-language learning app to React/Next.js + Firebase, preserving all 5 game types and 3 language-assist levels (full translation, on-demand translation, hover-word glossary, and text-to-speech) used with bilingual K-5 learners</li>
-        <li>Built a Firestore analytics pipeline — data access layer, aggregation logic for skill accuracy, weak-topic detection, and assist-usage tracking — backed by 36 unit tests at 100% statement/branch/function coverage</li>
+        <li>Redesigned the app into a 5-level, 137-question progression system with real-time tracking and a rebuilt, theme-customizable UI</li>
+        <li>Built a Firestore analytics pipeline — data access layer, aggregation logic for skill accuracy, weak-topic detection, and assist-usage tracking — backed by 62 unit tests at 100% coverage</li>
         <li>Built a teacher-facing portal (class overview, per-student detail, assist-usage breakdown) wired to real Firestore data, verified against ground-truth logging audits</li>
-        <li>Contributed to an IRB-approved HCI research project on AI-driven personalized multilingual math-language learning in California classroom settings</li>
+        <li>Contributed to an IRB-approved HCI research project on AI-driven personalized multilingual math-language learning in California classroom settings, in collaboration with Cal Poly Pomona's HAPII Lab</li>
       </ul>
     </div>
 
@@ -717,7 +725,9 @@
         <span class="work-date">May 2026 – Aug 2026</span>
       </div>
       <div class="work-role">Tech Fellow</div>
-      <p class="work-desc">Technical support and mentorship for students in CodePath's Applied AI course.</p>
+      <ul class="work-bullets">
+        <li>Mentored ~200 students in CodePath's Applied AI course — completed each of the 9 weekly Python projects in advance to anticipate blockers, then supported breakout-room Q&amp;A during live sessions to unblock students in real time</li>
+      </ul>
     </div>
 
     <div class="work-entry reveal">
@@ -768,6 +778,7 @@
         <div class="os-name"><a href="https://github.com/Submitty/Submitty" target="_blank">Submitty</a></div>
       </div>
       <p class="os-desc">Production university grading platform serving thousands of students and instructors.</p>
+      <p class="os-summary">Merged 3 of 5 opened PRs — Cypress E2E coverage for grade-banner overrides and legal-name privacy protections across roles, plus a PHP bug fix for filename-parsing conflicts causing silent merge failures.</p>
       <table>
         <thead><tr><th>PR</th><th>Description</th><th>Status</th></tr></thead>
         <tbody>
