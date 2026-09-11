@@ -694,39 +694,31 @@
 
     <div class="work-entry reveal">
       <div class="work-header">
+        <div class="work-title">Cal Poly Pomona <span style="color:var(--muted); font-size:0.75em;">(CPP-HAPII Lab)</span></div>
+        <span class="work-date">Aug 2026 – Present</span>
+      </div>
+      <div class="work-role">Software Engineering Research Assistant</div>
+      <ul class="work-bullets">
+        <li>Own the language-assessment side of an eye-tracking research platform testing whether webcam-based gaze data can infer language proficiency, benchmarked against a hardware eye tracker</li>
+        <li>Built and validated the calibration-to-heatmap pipeline — gaze capture, heatmap generation, and ST-DBSCAN fixation clustering — to convert raw gaze data into interpretable fixation patterns</li>
+        <li>Designing the database schema and participant-facing test system for a 100-question user study, including CaMLA English Placement Test integration and per-participant ID generation</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">WebGazer</span><span class="tag">FastAPI</span>
+        <span class="tag">SQLite</span><span class="tag">Python</span>
+        <span class="tag">ST-DBSCAN</span>
+      </div>
+    </div>
+
+    <div class="work-entry reveal">
+      <div class="work-header">
         <div class="work-title">Yang Management <span style="color:var(--muted); font-size:0.75em;">(placed at LACCD Office of Information Technology)</span></div>
         <span class="work-date">Jul 2026 – Present</span>
       </div>
       <div class="work-role">Website Intern</div>
       <ul class="work-bullets">
-        <li>Led a document-ownership audit across 7 LACCD campuses (LAHC, LAMC, LASC, LATTC, LAPC, LAVC, WLAC), correcting file URLs/types and flagging unowned CMS content to support a district-wide accessibility initiative</li>
+        <li>Led a document-ownership audit across 9 LACCD campuses (LAHC, LAMC, LASC, LATTC, LAPC, LAVC, WLAC, ELAC, LACC), correcting file URLs/types and flagging unowned CMS content to support a district-wide accessibility initiative</li>
         <li>Picked up Drupal, YAML, Twig, and SASS/SCSS for the College CMS platform, coordinating deliverables across IT, CS, and Web Services teams via Microsoft Teams and Planner</li>
-      </ul>
-    </div>
-
-    <div class="work-entry reveal">
-      <div class="work-header">
-        <div class="work-title">Santa Clara University</div>
-        <span class="work-date">Jun 2026 – Aug 2026</span>
-      </div>
-      <div class="work-role">Website Developer Intern</div>
-      <ul class="work-bullets">
-        <li>Ported a Flutter multilingual math-language learning app to React/Next.js + Firebase, preserving all 5 game types and 3 language-assist levels (full translation, on-demand translation, hover-word glossary, and text-to-speech) used with bilingual K-5 learners</li>
-        <li>Redesigned the app into a 5-level, 137-question progression system with real-time tracking and a rebuilt, theme-customizable UI</li>
-        <li>Built a Firestore analytics pipeline — data access layer, aggregation logic for skill accuracy, weak-topic detection, and assist-usage tracking — backed by 62 unit tests at 100% coverage</li>
-        <li>Built a teacher-facing portal (class overview, per-student detail, assist-usage breakdown) wired to real Firestore data, verified against ground-truth logging audits</li>
-        <li>Contributed to an IRB-approved HCI research project on AI-driven personalized multilingual math-language learning in California classroom settings, in collaboration with Cal Poly Pomona's HAPII Lab</li>
-      </ul>
-    </div>
-
-    <div class="work-entry reveal">
-      <div class="work-header">
-        <div class="work-title">CodePath</div>
-        <span class="work-date">May 2026 – Aug 2026</span>
-      </div>
-      <div class="work-role">Tech Fellow</div>
-      <ul class="work-bullets">
-        <li>Mentored ~200 students in CodePath's Applied AI course — completed each of the 9 weekly Python projects in advance to anticipate blockers, then supported breakout-room Q&amp;A during live sessions to unblock students in real time</li>
       </ul>
     </div>
 
@@ -767,6 +759,32 @@
         <a href="https://burmalingo.vercel.app" target="_blank">Live</a>
       </div>
     </div>
+
+    <div class="work-entry reveal">
+      <div class="work-header">
+        <div class="work-title">Santa Clara University <span style="color:var(--muted); font-size:0.75em;">(with Cal Poly Pomona's HAPII Lab)</span></div>
+        <span class="work-date">Jun 2026 – Aug 2026</span>
+      </div>
+      <div class="work-role">Software Engineering Intern</div>
+      <ul class="work-bullets">
+        <li>Ported a Flutter multilingual math-language learning app to React/Next.js + Firebase, preserving all 5 game types and 3 language-assist levels (full translation, on-demand translation, hover-word glossary, and text-to-speech) used with bilingual K-5 learners</li>
+        <li>Redesigned the app into a 5-level, 137-question progression system with real-time tracking and a rebuilt, theme-customizable UI</li>
+        <li>Built a Firestore analytics pipeline — data access layer, aggregation logic for skill accuracy, weak-topic detection, and assist-usage tracking — backed by 62 unit tests at 100% coverage</li>
+        <li>Built a teacher-facing portal (class overview, per-student detail, assist-usage breakdown) wired to real Firestore data, verified against ground-truth logging audits</li>
+        <li>Contributed to an IRB-approved HCI research project on AI-driven personalized multilingual math-language learning in California classroom settings</li>
+      </ul>
+    </div>
+
+    <div class="work-entry reveal">
+      <div class="work-header">
+        <div class="work-title">CodePath</div>
+        <span class="work-date">May 2026 – Aug 2026</span>
+      </div>
+      <div class="work-role">Tech Fellow</div>
+      <ul class="work-bullets">
+        <li>Mentored ~200 students in CodePath's Applied AI course — completed each of the 9 weekly Python projects in advance to anticipate blockers, then supported breakout-room Q&amp;A during live sessions to unblock students in real time</li>
+      </ul>
+    </div>
   </section>
 
   <!-- OPEN SOURCE -->
@@ -776,8 +794,9 @@
     <div class="os-project reveal">
       <div class="os-title-row">
         <div class="os-name"><a href="https://github.com/Submitty/Submitty" target="_blank">Submitty</a></div>
+        <span class="os-stars">Rensselaer Polytechnic Institute</span>
       </div>
-      <p class="os-desc">Production university grading platform serving thousands of students and instructors.</p>
+      <p class="os-desc">Open Source Contributor · Mar 2026 – Jun 2026 · Production university grading platform serving thousands of students and instructors.</p>
       <p class="os-summary">Merged 3 of 5 opened PRs — Cypress E2E coverage for grade-banner overrides and legal-name privacy protections across roles, plus a PHP bug fix for filename-parsing conflicts causing silent merge failures.</p>
       <table>
         <thead><tr><th>PR</th><th>Description</th><th>Status</th></tr></thead>
