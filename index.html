@@ -678,7 +678,7 @@
     <p class="hero-meta">West Covina, CA &nbsp;·&nbsp; Expected Dec 2027</p>
     <div class="avail-badge">
       <span class="avail-dot"></span>
-      Open to SWE internships 2026–2027
+      Open to SWE internships · 2027
     </div>
     <div class="hero-cta">
       <a href="Khine_Zar_Hein_Resume.pdf" target="_blank" class="btn btn-primary">Resume</a>
@@ -694,32 +694,60 @@
 
     <div class="work-entry reveal">
       <div class="work-header">
+        <div class="work-title">TutorD LLC</div>
+        <span class="work-date">Oct 2026 – Present</span>
+      </div>
+      <div class="work-role">Full-Stack Cloud Developer Intern</div>
+      <ul class="work-bullets">
+        <li>Implement features from tickets and designs for an ed-tech LMS/CRM platform, including agentic and generative AI functionality and AWS security improvements, with unit and e2e test coverage</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">TypeScript</span><span class="tag">Go</span>
+        <span class="tag">Terraform</span><span class="tag">AWS</span>
+        <span class="tag">Next.js</span>
+      </div>
+    </div>
+
+    <div class="work-entry reveal">
+      <div class="work-header">
         <div class="work-title">Cal Poly Pomona <span style="color:var(--muted); font-size:0.75em;">(CPP-HAPII Lab)</span></div>
         <span class="work-date">Aug 2026 – Present</span>
       </div>
       <div class="work-role">Software Engineering Research Assistant</div>
       <ul class="work-bullets">
-        <li>Own the language-assessment side of an eye-tracking research platform testing whether webcam-based gaze data can infer language proficiency, benchmarked against a hardware eye tracker</li>
-        <li>Built and validated the calibration-to-heatmap pipeline — gaze capture, heatmap generation, and ST-DBSCAN fixation clustering — to convert raw gaze data into interpretable fixation patterns</li>
-        <li>Designing the database schema and participant-facing test system for a 100-question user study, including CaMLA English Placement Test integration and per-participant ID generation</li>
+        <li>Co-own the language-assessment side of an eye-tracking research platform testing whether webcam-based gaze data can infer language proficiency</li>
+        <li>Migrated gaze storage from SQLite to PostgreSQL, batched readings into 50-sample rows, and later simplified the schema to four tables capturing answer choices, per-question response times, and readable summary views</li>
+        <li>Rebuilt WebGazer calibration from 9 to 18 points based on a research paper — one-dot-at-a-time sampling, a face-positioning step, per-point accuracy scoring, click-based refinement during the test, and a fresh model each visit</li>
+        <li>Added word-level gaze labeling across 12 timed reading passages (each word tagged with its line and position), plus a nearest-element fallback for gaze jitter near page boundaries</li>
+        <li>Built Gazepoint GP3 recording and WebGazer comparison tools to benchmark webcam accuracy against a hardware eye tracker; deployed the platform on Vercel, Render, and Supabase</li>
       </ul>
       <div class="tags">
         <span class="tag">WebGazer</span><span class="tag">FastAPI</span>
-        <span class="tag">SQLite</span><span class="tag">Python</span>
-        <span class="tag">ST-DBSCAN</span>
+        <span class="tag">PostgreSQL</span><span class="tag">Python</span>
+        <span class="tag">JavaScript</span><span class="tag">Supabase</span>
+        <span class="tag">Render</span><span class="tag">Vercel</span>
+      </div>
+      <div class="entry-links">
+        <a href="https://github.com/CPP-HAPII/GazeMetrics" target="_blank">GitHub</a>
       </div>
     </div>
 
     <div class="work-entry reveal">
       <div class="work-header">
         <div class="work-title">Yang Management <span style="color:var(--muted); font-size:0.75em;">(placed at LACCD Office of Information Technology)</span></div>
-        <span class="work-date">Jul 2026 – Present</span>
+        <span class="work-date">Jul 2026 – Oct 2026</span>
       </div>
       <div class="work-role">Website Intern</div>
       <ul class="work-bullets">
         <li>Led a document-ownership audit across 9 LACCD campuses (LAHC, LAMC, LASC, LATTC, LAPC, LAVC, WLAC, ELAC, LACC), correcting file URLs/types and flagging unowned CMS content to support a district-wide accessibility initiative</li>
-        <li>Picked up Drupal, YAML, Twig, and SASS/SCSS for the College CMS platform, coordinating deliverables across IT, CS, and Web Services teams via Microsoft Teams and Planner</li>
+        <li>Prototyped a reusable Figma component system for the College CMS, using Variables with Modes to switch branding per college</li>
+        <li>Reviewed DubBot accessibility findings across College CMS sites and contacted page owners with fixes, coordinating across IT, CS, and Web Services teams</li>
       </ul>
+      <div class="tags">
+        <span class="tag">Drupal</span><span class="tag">Twig</span>
+        <span class="tag">YAML</span><span class="tag">SASS/SCSS</span>
+        <span class="tag">Figma</span>
+      </div>
     </div>
 
     <div class="work-entry reveal">
@@ -873,7 +901,7 @@
           <span class="tag">Docker</span><span class="tag">Locust</span>
           <span class="tag">GitHub Actions</span>
         </div>
-        <div style="display:flex;gap:0.75rem;margin-top:0.75rem;font-size:10px;color:var(--text-2);letter-spacing:0.04em;">
+        <div style="display:flex;gap:0.75rem;margin-top:0.75rem;font-size:10px;color:var(--text-2);letter-spacing:0.04em;flex-wrap:wrap;">
           <span>🥇 Reliability Gold</span>
           <span>🥇 Scalability Gold</span>
           <span>🥈 Incident Response Silver</span>
@@ -927,7 +955,7 @@
         <div class="skill-group-label">Infra</div>
         <ul class="skill-list">
           <li>Docker</li><li>Nginx</li><li>GitHub Actions</li>
-          <li>Vercel · Railway · Neon</li><li>Linux</li>
+          <li>Vercel · Railway · Neon</li><li>Render · Supabase</li><li>Linux</li>
         </ul>
       </div>
       <div>
@@ -935,13 +963,14 @@
         <ul class="skill-list">
           <li>React</li><li>Next.js</li><li>Tailwind CSS</li>
           <li>Recharts</li><li>Vite</li><li>Cypress</li>
+          <li>Drupal · Twig · SASS</li><li>Figma</li>
         </ul>
       </div>
       <div>
         <div class="skill-group-label">AI &amp; Services</div>
         <ul class="skill-list">
           <li>OpenAI GPT-4o</li><li>Azure AI Speech</li><li>Azure Blob Storage</li>
-          <li>Stripe</li><li>Resend</li>
+          <li>WebGazer</li><li>Stripe</li><li>Resend</li>
         </ul>
       </div>
     </div>
@@ -978,7 +1007,7 @@
 
   <footer>
     <span>Khine Zar Hein</span>
-    <span>Open to SWE internship opportunities · 2026–2027</span>
+    <span>Open to SWE internship opportunities · 2027</span>
   </footer>
 
   <script>
